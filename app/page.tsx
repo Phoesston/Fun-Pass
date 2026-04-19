@@ -41,7 +41,7 @@ export default function Home() {
 
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto pt-20">
           <Image
-            src="/Fun-PassLogo.jpeg"
+            src="/Fun-PassLogo.png"
             alt="Fun Pass Entertainment Group"
             width={220}
             height={110}

@@ -9,7 +9,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <Image
-              src="/Fun-PassLogo.jpeg"
+              src="/Fun-PassLogo.png"
               alt="Fun Pass Entertainment Group"
               width={140}
               height={70}
