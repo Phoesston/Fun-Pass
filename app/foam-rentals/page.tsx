@@ -1,8 +1,9 @@
 import EquipmentCard from '../components/EquipmentCard';
 import HoneyBookEmbed from '../components/HoneyBookEmbed';
+import SlideshowHeader from '../components/SlideshowHeader';
 
 // ── HoneyBook config ──────────────────────────────────────────────────────────
-// Get these from your HoneyBook dashboard → Tools → Embeddable Contact Form
+// Get these from the HoneyBook dashboard → Tools → Embeddable Contact Form
 const HONEYBOOK_COMPANY_ID = '';
 const HONEYBOOK_FORM_ID = '';
 // ─────────────────────────────────────────────────────────────────────────────
@@ -40,21 +41,22 @@ const foamEquipment = [
   },
 ];
 
+const images = [
+  '/foam-rentals/foam1.jpg',
+  '/foam-rentals/foam2.JPG',
+  '/foam-rentals/foam3.JPG',
+];
+
 export default function FoamRentals() {
   return (
     <>
-      {/* ── Header ── */}
-      <section className="bg-gradient-to-br from-brand-sky via-cyan-600 to-brand-navy pt-32 pb-20 text-center">
-        <div className="max-w-3xl mx-auto px-4">
-          <div className="text-6xl mb-4">🫧</div>
-          <h1 className="font-display text-5xl md:text-6xl text-white mb-4">
-            Foam <span className="text-brand-yellow">Rentals</span>
-          </h1>
-          <p className="text-white/80 text-xl">
-            High-powered foam cannons and packages for the most unforgettable parties ever.
-          </p>
-        </div>
-      </section>
+      <SlideshowHeader
+        images={images}
+        emoji="🫧"
+        title={<>Foam <span className="text-brand-yellow">Rentals</span></>}
+        subtitle="High-powered foam cannons and packages for the most unforgettable parties ever."
+        overlay="bg-brand-sky/60"
+      />
 
       {/* ── Equipment Grid ── */}
       <section className="py-20 bg-white">

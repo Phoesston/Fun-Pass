@@ -10,6 +10,8 @@ const links = [
   { href: '/party-rentals', label: 'Party Rentals' },
   { href: '/foam-rentals', label: 'Foam Rentals' },
   { href: '/gallery', label: 'Gallery' },
+  { href: '/about', label: 'About' },
+  { href: '/faq', label: 'FAQ' },
 ];
 
 export default function Navbar() {
@@ -33,26 +35,37 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          {/* Logo */}
+
+        {/* 🔥 Shrinks on scroll */}
+        <div
+          className={`flex items-center justify-between transition-all duration-300 ${
+            scrolled ? 'h-20' : 'h-28'
+          }`}
+        >
+          
+          {/* Logo (also shrinks) */}
           <Link href="/" className="flex-shrink-0">
             <Image
               src="/Fun-PassLogo.png"
               alt="Fun Pass Entertainment Group"
-              width={260}
-              height={130}
-              className="h-14 w-auto"
+              width={300}
+              height={150}
+              className={`w-auto transition-all duration-300 ${
+                scrolled ? 'h-20' : 'h-35'
+              }`}
               priority
             />
           </Link>
 
           {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-10">
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`font-bold text-sm uppercase tracking-wide transition-colors ${
+                className={`font-bold uppercase tracking-wide transition-colors duration-200 ${
+                  scrolled ? 'text-sm' : 'text-base'
+                } ${
                   pathname === link.href
                     ? 'text-brand-yellow'
                     : 'text-white hover:text-brand-yellow'
@@ -61,26 +74,30 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
+
+            {/* CTA button also scales slightly */}
             <a
               href="/party-rentals#book"
-              className="bg-brand-yellow text-brand-navy font-bold px-5 py-2.5 rounded-full text-sm uppercase tracking-wide hover:brightness-110 transition-all"
+              className={`bg-brand-yellow text-brand-navy font-bold rounded-full uppercase tracking-wide hover:brightness-110 transition-all duration-300 ${
+                scrolled ? 'px-5 py-2 text-sm' : 'px-6 py-3 text-base'
+              }`}
             >
               Book Now
             </a>
           </div>
 
-          {/* Mobile hamburger */}
+          {/* Mobile button */}
           <button
-            className="md:hidden text-white p-2"
+            className="md:hidden text-white p-3"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
           >
             {menuOpen ? (
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             ) : (
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             )}
@@ -89,23 +106,26 @@ export default function Navbar() {
 
         {/* Mobile menu */}
         {menuOpen && (
-          <div className="md:hidden bg-brand-navy border-t border-white/20 py-4">
+          <div className="md:hidden bg-brand-navy border-t border-white/20 py-5">
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`block px-4 py-3 font-bold text-sm uppercase tracking-wide transition-colors ${
-                  pathname === link.href ? 'text-brand-yellow' : 'text-white hover:text-brand-yellow'
+                className={`block px-4 py-4 font-bold text-base uppercase tracking-wide transition-colors ${
+                  pathname === link.href
+                    ? 'text-brand-yellow'
+                    : 'text-white hover:text-brand-yellow'
                 }`}
                 onClick={() => setMenuOpen(false)}
               >
                 {link.label}
               </Link>
             ))}
-            <div className="px-4 pt-3">
+
+            <div className="px-4 pt-4">
               <a
                 href="/party-rentals#book"
-                className="block text-center bg-brand-yellow text-brand-navy font-bold px-5 py-3 rounded-full text-sm uppercase tracking-wide"
+                className="block text-center bg-brand-yellow text-brand-navy font-bold px-6 py-3 rounded-full text-base uppercase tracking-wide"
                 onClick={() => setMenuOpen(false)}
               >
                 Book Now
@@ -113,6 +133,7 @@ export default function Navbar() {
             </div>
           </div>
         )}
+
       </div>
     </nav>
   );
