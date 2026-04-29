@@ -1,45 +1,13 @@
 import EquipmentCard from '../components/EquipmentCard';
 import HoneyBookEmbed from '../components/HoneyBookEmbed';
 import SlideshowHeader from '../components/SlideshowHeader';
+import { foamEquipment } from '../../lib/equipment';
 
 // ── HoneyBook config ──────────────────────────────────────────────────────────
 // Get these from the HoneyBook dashboard → Tools → Embeddable Contact Form
 const HONEYBOOK_COMPANY_ID = '';
 const HONEYBOOK_FORM_ID = '';
 // ─────────────────────────────────────────────────────────────────────────────
-
-const foamEquipment = [
-  {
-    name: 'Foam Cannon Deluxe',
-    description:
-      'Our most popular rental — a high-powered cannon that floods any space with thick, safe foam.',
-  },
-  {
-    name: 'Foam Party Package',
-    description:
-      'Everything you need in one bundle: cannon, foam solution, and full setup included.',
-  },
-  {
-    name: 'Foam Pit Setup',
-    description:
-      'Create a foam pit experience perfect for kids and adults at outdoor events and festivals.',
-  },
-  {
-    name: 'Dual Cannon Package',
-    description:
-      'Two cannons running simultaneously for large events, school field days, and big crowds.',
-  },
-  {
-    name: 'Foam & Snow Cone Combo',
-    description:
-      'Pair your foam party with icy snow cones — the ultimate summer event combo.',
-  },
-  {
-    name: 'Backyard Foam Starter',
-    description:
-      'A scaled-down setup perfect for birthday parties in the backyard. Easy and safe for all ages.',
-  },
-];
 
 const images = [
   '/foam-rentals/foam1.jpg',

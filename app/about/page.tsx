@@ -141,6 +141,40 @@ export default function About() {
         </div>
       </section>
 
+      {/* ── Service Area ── */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <div className="text-5xl mb-4">📍</div>
+          <h2 className="font-display text-4xl text-brand-navy mb-4">
+            Where We <span className="text-brand-yellow">Serve</span>
+          </h2>
+          <p className="text-gray-500 text-lg mb-10">
+            Based in Palmetto, FL — proudly serving the entire Suncoast region.
+          </p>
+          <div className="flex flex-wrap justify-center gap-3 mb-8">
+            {[
+              'Palmetto', 'Bradenton', 'Parrish', 'Ellenton',
+              'Lakewood Ranch', 'Sarasota', 'Ruskin',
+              'Sun City Center', 'Apollo Beach', 'Terra Ceia',
+            ].map((city) => (
+              <span
+                key={city}
+                className="bg-white border border-brand-navy/15 text-brand-navy font-bold text-sm px-5 py-2.5 rounded-full shadow-sm"
+              >
+                📍 {city}
+              </span>
+            ))}
+          </div>
+          <p className="text-gray-400 text-sm">
+            Don&apos;t see your city?{' '}
+            <a href="/party-rentals#book" className="text-brand-sky font-bold hover:underline">
+              Contact us
+            </a>{' '}
+            and we&apos;ll let you know if we can make it out to you!
+          </p>
+        </div>
+      </section>
+
       {/* ── CTA ── */}
       <section className="bg-brand-navy py-20">
         <div className="max-w-2xl mx-auto px-4 text-center">

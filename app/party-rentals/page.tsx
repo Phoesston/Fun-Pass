@@ -1,5 +1,7 @@
 import EquipmentCard from '../components/EquipmentCard';
 import HoneyBookEmbed from '../components/HoneyBookEmbed';
+import SlideshowHeader from '../components/SlideshowHeader';
+import { partyEquipment } from '../../lib/equipment';
 
 // ── HoneyBook config ──────────────────────────────────────────────────────────
 // Get these from your HoneyBook dashboard → Tools → Embeddable Contact Form
@@ -7,69 +9,22 @@ const HONEYBOOK_COMPANY_ID = '';
 const HONEYBOOK_FORM_ID = '';
 // ─────────────────────────────────────────────────────────────────────────────
 
-const partyEquipment = [
-  {
-    name: 'Giant Connect Four',
-    description:
-      'The classic 4-in-a-row game blown up to party size. A crowd-pleaser for all ages at any event.',
-  },
-  {
-    name: 'Giant Jenga',
-    description:
-      'Stack those oversized blocks and hope it doesn\'t tumble! Hours of laughs guaranteed.',
-  },
-  {
-    name: 'Giant Checkers',
-    description:
-      'Oversized checkers set perfect for lawn parties, corporate events, and family reunions.',
-  },
-  {
-    name: 'Snow Cone Machine',
-    description:
-      'Commercial-grade machine with your choice of flavors. A must-have for outdoor events.',
-  },
-  {
-    name: 'Cornhole Set',
-    description:
-      'Custom bean bag toss boards — the ultimate classic outdoor party game.',
-  },
-  {
-    name: 'Carnival Ring Toss',
-    description:
-      'Bring the carnival to your backyard with this ring toss setup. Add prizes for extra fun!',
-  },
-  {
-    name: 'Oversized Bowling',
-    description:
-      'Inflatable lawn bowling set — easy to set up and impossible to stop playing.',
-  },
-  {
-    name: 'Limbo Set',
-    description:
-      'How low can you go? Our colorful limbo kit gets every age group on their feet.',
-  },
-  {
-    name: 'Tug of War Rope',
-    description:
-      'Classic competition rope for team events, field days, and birthday battles.',
-  },
+const images = [
+  '/party-rentals/kerPlunk.jpeg',
+  '/party-rentals/cornHole.jpeg',
+  '/party-rentals/tetrisTumble.jpeg',
 ];
 
 export default function PartyRentals() {
   return (
     <>
-      {/* ── Header ── */}
-      <section className="bg-gradient-to-br from-brand-navy via-blue-900 to-brand-navy pt-32 pb-20 text-center">
-        <div className="max-w-3xl mx-auto px-4">
-          <div className="text-6xl mb-4">🎉</div>
-          <h1 className="font-display text-5xl md:text-6xl text-white mb-4">
-            Party <span className="text-brand-yellow">Rentals</span>
-          </h1>
-          <p className="text-white/75 text-xl">
-            Giant games, snow cones, and carnival fun — everything you need for an epic party.
-          </p>
-        </div>
-      </section>
+      <SlideshowHeader
+        images={images}
+        emoji="🎉"
+        title={<>Party <span className="text-brand-yellow">Rentals</span></>}
+        subtitle="Giant games, snow cones, and carnival fun — everything you need for an epic party."
+        overlay="bg-brand-navy/65"
+      />
 
       {/* ── Equipment Grid ── */}
       <section className="py-20 bg-white">

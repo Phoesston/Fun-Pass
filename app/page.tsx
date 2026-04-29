@@ -1,24 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import EquipmentCard from './components/EquipmentCard';
-
-const featuredItems = [
-  {
-    name: 'Giant Connect Four',
-    description: 'The classic 4-in-a-row game blown up to party size. Perfect for guests of all ages.',
-    category: 'party' as const,
-  },
-  {
-    name: 'Snow Cone Machine',
-    description: 'Commercial-grade snow cone machine — cool treats that keep the party going.',
-    category: 'party' as const,
-  },
-  {
-    name: 'Foam Cannon Deluxe',
-    description: 'High-powered foam cannon that fills any space with fun, fluffy foam.',
-    category: 'foam' as const,
-  },
-];
+import { featuredItems } from '../lib/equipment';
 
 export default function Home() {
   return (

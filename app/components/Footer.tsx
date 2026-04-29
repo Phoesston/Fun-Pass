@@ -53,7 +53,7 @@ export default function Footer() {
             <ul className="space-y-3 text-sm text-white/70">
               <li>📧 info@funpassentertainment.com</li>
               <li>📞 (555) 123-4567</li>
-              <li>📍 Your City, State</li>
+              <li>📍 Palmetto, Florida</li>
             </ul>
             <a
               href="/party-rentals#book"
@@ -64,7 +64,22 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/20 mt-12 pt-6 text-center text-white/40 text-sm">
+        {/* Service area */}
+        <div className="border-t border-white/20 mt-12 pt-8 text-center">
+          <p className="text-white/50 text-xs uppercase tracking-widest mb-2 font-bold">Proudly Serving</p>
+          <p className="text-white/50 text-sm">
+            Palmetto · Bradenton · Parrish · Ellenton · Lakewood Ranch · Sarasota · Ruskin · Sun City Center · Apollo Beach · Terra Ceia
+          </p>
+          <p className="text-white/35 text-xs mt-1">
+            Don&apos;t see your city?{' '}
+            <a href="/party-rentals#book" className="underline hover:text-white/60 transition-colors">
+              Contact us
+            </a>{' '}
+            to check availability.
+          </p>
+        </div>
+
+        <div className="border-t border-white/10 mt-6 pt-6 text-center text-white/30 text-sm">
           &copy; {new Date().getFullYear()} Fun Pass Entertainment Group. All rights reserved.
         </div>
       </div>
