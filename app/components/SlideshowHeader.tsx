@@ -9,6 +9,7 @@ interface SlideshowHeaderProps {
   title: React.ReactNode;
   subtitle: string;
   overlay?: string;
+  badge?: { src: string; alt: string };
 }
 
 export default function SlideshowHeader({
@@ -17,6 +18,7 @@ export default function SlideshowHeader({
   title,
   subtitle,
   overlay = 'bg-brand-navy/65',
+  badge,
 }: SlideshowHeaderProps) {
   const [current, setCurrent] = useState(0);
 
@@ -50,9 +52,24 @@ export default function SlideshowHeader({
       <div className={`absolute inset-0 ${overlay}`} />
 
       {/* Text */}
-      <div className="relative z-10 max-w-3xl mx-auto px-4">
+      <div className="relative z-10 max-w-4xl mx-auto px-4">
         <div className="text-6xl mb-4">{emoji}</div>
-        <h1 className="font-display text-5xl md:text-6xl text-white mb-4">{title}</h1>
+        {badge ? (
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-4">
+            <h1 className="font-display text-5xl md:text-6xl text-white">{title}</h1>
+            <div className="bg-white/15 backdrop-blur-sm rounded-2xl p-3 ring-2 ring-white/30 flex-shrink-0">
+              <Image
+                src={badge.src}
+                alt={badge.alt}
+                width={120}
+                height={120}
+                className="h-28 w-auto"
+              />
+            </div>
+          </div>
+        ) : (
+          <h1 className="font-display text-5xl md:text-6xl text-white mb-4">{title}</h1>
+        )}
         <p className="text-white/80 text-xl">{subtitle}</p>
       </div>
 
