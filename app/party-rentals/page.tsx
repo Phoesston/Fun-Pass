@@ -12,7 +12,7 @@ const HONEYBOOK_FORM_ID = '';
 const images = [
   '/party-rentals/kerPlunk.jpeg',
   '/party-rentals/cornHole.jpeg',
-  '/party-rentals/tetrisTumble.jpeg',
+  '/party-rentals/tetrisTumble.jpg',
 ];
 
 export default function PartyRentals() {

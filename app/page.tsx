@@ -26,9 +26,12 @@ export default function Home() {
             alt="Fun Pass Entertainment Group"
             width={220}
             height={110}
-            className="mx-auto mb-8 drop-shadow-2xl rounded-2xl"
+            className="mx-auto mb-3 drop-shadow-2xl rounded-2xl"
             priority
           />
+          <p className="text-white text-sm uppercase tracking-widest mb-8 drop-shadow-lg font-bold">
+            📍 Palmetto · Bradenton · Parrish · Ellenton · Lakewood Ranch · Sarasota &amp; more
+          </p>
           <h1 className="font-display text-5xl md:text-7xl text-white mb-5 drop-shadow-lg leading-tight">
             Where Every Event Becomes a{' '}
             <span className="text-brand-yellow">Party!</span>
@@ -56,7 +59,7 @@ export default function Home() {
       {/* ── Marquee strip ── */}
       <section className="bg-brand-yellow py-4">
         <p className="font-display text-brand-navy text-xl md:text-2xl text-center">
-          🎊 Serving Your Area &nbsp;•&nbsp; Fully Insured &nbsp;•&nbsp; Setup &amp; Cleanup Included 🎊
+          🎊 Serving The Suncoast Region &nbsp;•&nbsp; Fully Insured &nbsp;•&nbsp; Setup &amp; Cleanup Included 🎊
         </p>
       </section>
 
