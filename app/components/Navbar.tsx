@@ -28,6 +28,11 @@ export default function Navbar() {
 
   const transparent = isHome && !scrolled;
 
+  const bookHref =
+    pathname === '/party-rentals' || pathname === '/foam-rentals'
+      ? '#book'
+      : '/party-rentals#book';
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -77,7 +82,7 @@ export default function Navbar() {
 
             {/* CTA button also scales slightly */}
             <a
-              href="/party-rentals#book"
+              href={bookHref}
               className={`bg-brand-yellow text-brand-navy font-bold rounded-full uppercase tracking-wide hover:brightness-110 transition-all duration-300 ${
                 scrolled ? 'px-5 py-2 text-sm' : 'px-6 py-3 text-base'
               }`}
@@ -124,7 +129,7 @@ export default function Navbar() {
 
             <div className="px-4 pt-4">
               <a
-                href="/party-rentals#book"
+                href={bookHref}
                 className="block text-center bg-brand-yellow text-brand-navy font-bold px-6 py-3 rounded-full text-base uppercase tracking-wide"
                 onClick={() => setMenuOpen(false)}
               >

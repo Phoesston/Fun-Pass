@@ -11,13 +11,10 @@ export default function Footer() {
             <Image
               src="/Fun-PassLogo.png"
               alt="Fun Pass Entertainment Group"
-              width={140}
-              height={70}
-              className="h-16 w-auto mb-4"
+              width={320}
+              height={160}
+              className="h-60 w-auto"
             />
-            <p className="text-white/60 text-sm leading-relaxed">
-              Making every event unforgettable with premium party and foam rentals.
-            </p>
           </div>
 
           {/* Links */}
@@ -55,12 +52,6 @@ export default function Footer() {
               <li>📞 (555) 123-4567</li>
               <li>📍 Palmetto, Florida</li>
             </ul>
-            <a
-              href="/party-rentals#book"
-              className="inline-block mt-5 bg-brand-yellow text-brand-navy font-bold px-5 py-2.5 rounded-full text-sm uppercase tracking-wide hover:brightness-110 transition-all"
-            >
-              Book Now
-            </a>
           </div>
         </div>
 

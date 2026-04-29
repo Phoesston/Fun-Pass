@@ -5,9 +5,11 @@ interface EquipmentCardProps {
   description: string;
   imageSrc?: string;
   category: 'party' | 'foam';
+  bookingHref?: string;
 }
 
-export default function EquipmentCard({ name, description, imageSrc, category }: EquipmentCardProps) {
+export default function EquipmentCard({ name, description, imageSrc, category, bookingHref }: EquipmentCardProps) {
+  const href = bookingHref ?? (category === 'foam' ? '/foam-rentals#book' : '/party-rentals#book');
   const placeholderGradient =
     category === 'foam'
       ? 'from-brand-sky to-cyan-300'
@@ -43,7 +45,7 @@ export default function EquipmentCard({ name, description, imageSrc, category }:
         <h3 className="font-display text-xl text-brand-navy mb-2">{name}</h3>
         <p className="text-gray-500 text-sm leading-relaxed flex-1 mb-5">{description}</p>
         <a
-          href="/party-rentals#book"
+          href={href}
           className="block text-center bg-brand-navy text-white font-bold py-3 rounded-full text-sm uppercase tracking-wide hover:bg-brand-sky transition-colors"
         >
           Get a Quote
