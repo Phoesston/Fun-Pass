@@ -1,28 +1,26 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import EquipmentCard from './components/EquipmentCard';
+import SlideshowHeader from './components/SlideshowHeader';
 import { featuredItems } from '../lib/equipment';
+
+const heroImages = [
+  '/party-rentals/cornHole.jpeg',
+  '/foam-rentals/foam1.jpg',
+  '/party-rentals/giantJenga.jpeg',
+  '/foam-rentals/foam2.JPG',
+  '/party-rentals/tetrisTumble.jpg',
+  '/foam-rentals/foam3.JPG',
+  '/party-rentals/yardDice.jpeg',
+  '/party-rentals/giantGuessWho.jpeg',
+];
 
 export default function Home() {
   return (
     <>
       {/* ── Hero ── */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Looping background video — place your video at /public/videos/hero.mp4 */}
-        <video
-          className="absolute inset-0 w-full h-full object-cover"
-          src="/videos/hero.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
-        />
-        {/* Gradient fallback (shows when video hasn't loaded or doesn't exist) */}
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-navy via-blue-900 to-brand-sky" />
-        {/* Dark overlay so text pops over any background */}
-        <div className="absolute inset-0 bg-black/45" />
-
-        <div className="relative z-10 text-center px-4 max-w-4xl mx-auto pt-20">
+      <SlideshowHeader images={heroImages} overlay="bg-black/45" className="min-h-screen">
+        <div className="text-center px-4 max-w-4xl mx-auto pt-20">
           <Image
             src="/Fun-PassLogo.png"
             alt="Fun Pass Entertainment Group"
@@ -53,14 +51,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
-
-        {/* Scroll arrow */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/60 animate-bounce">
-          <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-          </svg>
-        </div>
-      </section>
+      </SlideshowHeader>
 
       {/* ── Marquee strip ── */}
       <section className="bg-brand-yellow py-4">

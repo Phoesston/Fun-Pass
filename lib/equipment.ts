@@ -56,7 +56,7 @@ export const partyEquipment: EquipmentItem[] = [
     name: 'Tetris Tumbler',
     description: 'Stack and balance these giant Tetris blocks — a fun challenge for kids and adults alike. Perfect for parties and team-building events.',
     category: 'party',
-    imageSrc: '/party-rentals/tetrisTumble.jpeg',
+    imageSrc: '/party-rentals/tetrisTumble.jpg',
   },
   {
     name: 'Yard Dice',

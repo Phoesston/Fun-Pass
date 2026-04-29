@@ -5,11 +5,13 @@ import { useState, useEffect } from 'react';
 
 interface SlideshowHeaderProps {
   images: string[];
-  emoji: string;
-  title: React.ReactNode;
-  subtitle: string;
+  emoji?: string;
+  title?: React.ReactNode;
+  subtitle?: string;
   overlay?: string;
   badge?: { src: string; alt: string };
+  children?: React.ReactNode;
+  className?: string;
 }
 
 export default function SlideshowHeader({
@@ -19,6 +21,8 @@ export default function SlideshowHeader({
   subtitle,
   overlay = 'bg-brand-navy/65',
   badge,
+  children,
+  className = '',
 }: SlideshowHeaderProps) {
   const [current, setCurrent] = useState(0);
 
@@ -31,7 +35,7 @@ export default function SlideshowHeader({
   }, [images.length]);
 
   return (
-    <section className="relative pt-32 pb-20 text-center overflow-hidden min-h-80">
+    <section className={`relative pt-32 pb-20 text-center overflow-hidden min-h-80 flex items-center justify-center ${className}`}>
       {/* Background images — fade between them */}
       {images.length > 0 ? (
         images.map((src, i) => (
@@ -41,7 +45,7 @@ export default function SlideshowHeader({
               i === current ? 'opacity-100' : 'opacity-0'
             }`}
           >
-            <Image src={src} alt="" fill className="object-cover" priority={i === 0} />
+            <Image src={src} alt="" fill sizes="100vw" quality={90} className="object-cover" priority={i === 0} />
           </div>
         ))
       ) : (
@@ -51,26 +55,30 @@ export default function SlideshowHeader({
       {/* Tinted overlay so text stays readable */}
       <div className={`absolute inset-0 ${overlay}`} />
 
-      {/* Text */}
+      {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto px-4">
-        <div className="text-6xl mb-4">{emoji}</div>
-        {badge ? (
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-4">
-            <h1 className="font-display text-5xl md:text-6xl text-white">{title}</h1>
-            <div className="bg-white/15 backdrop-blur-sm rounded-2xl p-3 ring-2 ring-white/30 flex-shrink-0">
-              <Image
-                src={badge.src}
-                alt={badge.alt}
-                width={120}
-                height={120}
-                className="h-28 w-auto"
-              />
-            </div>
-          </div>
-        ) : (
-          <h1 className="font-display text-5xl md:text-6xl text-white mb-4">{title}</h1>
+        {children ?? (
+          <>
+            {emoji && <div className="text-6xl mb-4">{emoji}</div>}
+            {badge ? (
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-4">
+                <h1 className="font-display text-5xl md:text-6xl text-white">{title}</h1>
+                <div className="bg-white/15 backdrop-blur-sm rounded-2xl p-3 ring-2 ring-white/30 flex-shrink-0">
+                  <Image
+                    src={badge.src}
+                    alt={badge.alt}
+                    width={120}
+                    height={120}
+                    className="h-28 w-auto"
+                  />
+                </div>
+              </div>
+            ) : (
+              <h1 className="font-display text-5xl md:text-6xl text-white mb-4">{title}</h1>
+            )}
+            {subtitle && <p className="text-white/80 text-xl">{subtitle}</p>}
+          </>
         )}
-        <p className="text-white/80 text-xl">{subtitle}</p>
       </div>
 
       {/* Dot indicators */}

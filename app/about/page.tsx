@@ -34,7 +34,7 @@ export default function About() {
               <div className="relative">
                 <div className="absolute -inset-4 bg-gradient-to-br from-brand-yellow/30 to-brand-sky/30 rounded-3xl blur-xl" />
                 <Image
-                  src="/Fun-PassLogo.png"
+                  src="/logos/Fun-PassLogo.png"
                   alt="Fun Pass Entertainment Group"
                   width={420}
                   height={420}

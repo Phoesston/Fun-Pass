@@ -49,7 +49,7 @@ export default function Footer() {
             <h3 className="font-display text-brand-yellow text-lg mb-4">Contact Us</h3>
             <ul className="space-y-3 text-sm text-white/70">
               <li>📧 info@funpassentertainment.com</li>
-              <li>📞 (555) 123-4567</li>
+              <li>📞 (941) 396-3366</li>
               <li>📍 Palmetto, Florida</li>
             </ul>
           </div>
