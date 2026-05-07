@@ -22,7 +22,7 @@ export default function Home() {
       <SlideshowHeader images={heroImages} overlay="bg-black/45" className="min-h-screen">
         <div className="text-center px-4 max-w-4xl mx-auto pt-20">
           <Image
-            src="/Fun-PassLogo.png"
+            src="/logos/Fun-PassLogo.png"
             alt="Fun Pass Entertainment Group"
             width={220}
             height={110}

@@ -51,7 +51,7 @@ export default function Navbar() {
           {/* Logo (also shrinks) */}
           <Link href="/" className="flex-shrink-0">
             <Image
-              src="/Fun-PassLogo.png"
+              src="/logos/Fun-PassLogo.png"
               alt="Fun Pass Entertainment Group"
               width={300}
               height={150}

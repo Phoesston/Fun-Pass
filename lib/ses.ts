@@ -1,6 +1,6 @@
 import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses'
 import { Booking, Equipment, Inquiry } from '@/types'
-import { displayDate, countDays } from './utils'
+import { displayDate, countDays, escapeHtml } from './utils'
 
 const sesClient = new SESClient({
   region: process.env.AWS_SES_REGION!,
@@ -36,14 +36,17 @@ async function sendEmail(to: string, subject: string, html: string) {
 function emailWrapper(content: string): string {
   return `
     <div style="font-family:'Helvetica Neue',sans-serif;max-width:580px;margin:0 auto;color:#0f172a;">
-      <div style="background:#0f172a;padding:28px 32px;border-radius:16px 16px 0 0;text-align:center;">
-        <h1 style="margin:0;color:#F59E0B;font-size:24px;">🎲 PartyPlay Rentals</h1>
+      <div style="background:#0f172a;padding:24px 32px;border-radius:16px 16px 0 0;text-align:center;">
+        ${APP_URL
+          ? `<img src="${APP_URL}/logos/Fun-PassLogo.png" alt="Fun Pass Entertainment Group" style="height:64px;width:auto;display:inline-block;" />`
+          : `<h1 style="margin:0;color:#F59E0B;font-size:26px;font-family:'Helvetica Neue',sans-serif;">🎲 Fun Pass Entertainment Group</h1>`
+        }
       </div>
       <div style="background:#f8fafc;padding:32px;border-radius:0 0 16px 16px;border:1px solid #e2e8f0;">
         ${content}
       </div>
       <p style="text-align:center;font-size:11px;color:#94a3b8;margin-top:16px;">
-        PartyPlay Rentals · Making parties legendary
+        Fun Pass Entertainment Group &middot; Making parties legendary
       </p>
     </div>`
 }
@@ -166,6 +169,77 @@ export async function sendInquiryExpired(inquiry: Inquiry) {
     <p style="color:#64748b;">Please visit our site to submit a new inquiry, or contact us directly at <a href="mailto:${ADMIN}">${ADMIN}</a>.</p>
   `)
   return sendEmail(inquiry.customer_email, `Inquiry Expired — ${inquiry.reference_code}`, html)
+}
+
+// 9. Contact form — customer confirmation
+export async function sendContactFormCustomer(data: {
+  name: string
+  email: string
+  phone?: string
+  service: string
+  event_date: string
+  message?: string
+  ref: string
+}) {
+  const name = escapeHtml(data.name)
+  const phone = data.phone ? escapeHtml(data.phone) : null
+  const message = data.message ? escapeHtml(data.message) : null
+
+  const html = emailWrapper(`
+    <h2 style="margin:0 0 8px;">Hi ${name},</h2>
+    <p style="color:#64748b;margin:0 0 24px;">
+      Thanks for reaching out! We've received your inquiry and will get back to you within 24 hours to discuss availability and pricing.
+    </p>
+    <div style="background:#fff;border-radius:12px;padding:20px;border:1px solid #e2e8f0;margin-bottom:24px;">
+      <p style="margin:0 0 4px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#94a3b8;">Your Reference Code</p>
+      <p style="margin:0 0 16px;font-size:28px;font-weight:900;color:#F59E0B;letter-spacing:4px;">${data.ref}</p>
+      <table style="width:100%;border-collapse:collapse;font-size:14px;">
+        <tr>
+          <td style="padding:6px 0;border-bottom:1px solid #e2e8f0;color:#64748b;">Service</td>
+          <td style="padding:6px 0;border-bottom:1px solid #e2e8f0;text-align:right;font-weight:600;">${data.service}</td>
+        </tr>
+        <tr>
+          <td style="padding:6px 0;border-bottom:1px solid #e2e8f0;color:#64748b;">Event Date</td>
+          <td style="padding:6px 0;border-bottom:1px solid #e2e8f0;text-align:right;font-weight:600;">${data.event_date}</td>
+        </tr>
+        ${phone ? `<tr><td style="padding:6px 0;color:#64748b;">Phone</td><td style="padding:6px 0;text-align:right;font-weight:600;">${phone}</td></tr>` : ''}
+      </table>
+      ${message ? `<p style="margin:16px 0 0;font-size:13px;color:#64748b;border-top:1px solid #e2e8f0;padding-top:12px;"><strong>Your message:</strong> "${message}"</p>` : ''}
+    </div>
+    <p style="color:#64748b;font-size:13px;margin:0;">
+      Save your reference code — you can use it to follow up with us at <a href="mailto:${ADMIN}">${ADMIN}</a>
+    </p>
+  `)
+  return sendEmail(data.email, `Inquiry Received — Ref: ${data.ref}`, html)
+}
+
+// 10. Contact form — admin notification
+export async function sendContactFormAdmin(data: {
+  name: string
+  email: string
+  phone?: string
+  service: string
+  event_date: string
+  message?: string
+  ref: string
+}) {
+  const name = escapeHtml(data.name)
+  const phone = data.phone ? escapeHtml(data.phone) : null
+  const message = data.message ? escapeHtml(data.message) : null
+
+  const html = emailWrapper(`
+    <h2 style="margin:0 0 16px;">🔔 New Inquiry — ${data.ref}</h2>
+    <p><strong>Name:</strong> ${name}</p>
+    <p><strong>Email:</strong> <a href="mailto:${data.email}">${data.email}</a></p>
+    <p><strong>Phone:</strong> ${phone || 'Not provided'}</p>
+    <p><strong>Service:</strong> ${data.service}</p>
+    <p><strong>Event Date:</strong> ${data.event_date}</p>
+    ${message ? `<p><strong>Message:</strong> "${message}"</p>` : ''}
+    <a href="mailto:${data.email}" style="display:inline-block;background:#0f172a;color:#fff;padding:12px 24px;border-radius:10px;text-decoration:none;font-weight:700;margin-top:8px;">
+      Reply to Customer →
+    </a>
+  `)
+  return sendEmail(ADMIN, `New Inquiry: ${data.ref} — ${name}`, html)
 }
 
 // 8. Reminder to admin: inquiry hasn't been actioned in 24h

@@ -158,8 +158,13 @@ export async function POST(req: Request) {
   }, { status: 201 })
 }
 
-// GET all inquiries (admin)
-export async function GET() {
+// GET all inquiries (admin only)
+export async function GET(req: Request) {
+  const key = req.headers.get('x-admin-key')
+  if (!key || key !== process.env.ADMIN_API_KEY) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  }
+
   const supabase = createClient()
   const { data, error } = await supabase
     .from('inquiries')

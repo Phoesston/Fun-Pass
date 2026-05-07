@@ -1,14 +1,8 @@
 import Image from 'next/image';
 import EquipmentCard from '../components/EquipmentCard';
-import HoneyBookEmbed from '../components/HoneyBookEmbed';
+import InquiryForm from '../components/InquiryForm';
 import SlideshowHeader from '../components/SlideshowHeader';
 import { foamEquipment } from '../../lib/equipment';
-
-// ── HoneyBook config ──────────────────────────────────────────────────────────
-// Get these from the HoneyBook dashboard → Tools → Embeddable Contact Form
-const HONEYBOOK_COMPANY_ID = '';
-const HONEYBOOK_FORM_ID = '';
-// ─────────────────────────────────────────────────────────────────────────────
 
 const images = [
   '/foam-rentals/foam1.jpg',
@@ -67,7 +61,7 @@ export default function FoamRentals() {
             </p>
           </div>
 
-          <HoneyBookEmbed companyId={HONEYBOOK_COMPANY_ID} formId={HONEYBOOK_FORM_ID} />
+          <InquiryForm defaultService="Foam Rentals" />
         </div>
       </section>
     </>

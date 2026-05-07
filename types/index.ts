@@ -46,6 +46,7 @@ export interface Booking {
     end_date: string
     price_snapshot: number | null
     status: BookingStatus
+    admin_note: string | null
     created_at: string
     equipment?: Equipment
     inquiry?: Inquiry

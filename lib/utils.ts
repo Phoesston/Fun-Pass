@@ -1,5 +1,14 @@
 import {format, differenceInCalendarDays, addDays, parseISO} from 'date-fns'
 
+export function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
+}
+
 //Count days between two date strings
 export function countDays(start: string, end: string): number {
     return differenceInCalendarDays(parseISO(end), parseISO(start))

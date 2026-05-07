@@ -1,13 +1,7 @@
 import EquipmentCard from '../components/EquipmentCard';
-import HoneyBookEmbed from '../components/HoneyBookEmbed';
+import InquiryForm from '../components/InquiryForm';
 import SlideshowHeader from '../components/SlideshowHeader';
 import { partyEquipment } from '../../lib/equipment';
-
-// ── HoneyBook config ──────────────────────────────────────────────────────────
-// Get these from your HoneyBook dashboard → Tools → Embeddable Contact Form
-const HONEYBOOK_COMPANY_ID = '';
-const HONEYBOOK_FORM_ID = '';
-// ─────────────────────────────────────────────────────────────────────────────
 
 const images = [
   '/party-rentals/kerPlunk.jpeg',
@@ -48,7 +42,7 @@ export default function PartyRentals() {
               Fill out the form and we&apos;ll get back to you within 24 hours!
             </p>
           </div>
-          <HoneyBookEmbed companyId={HONEYBOOK_COMPANY_ID} formId={HONEYBOOK_FORM_ID} />
+          <InquiryForm defaultService="Party Rentals" />
         </div>
       </section>
     </>
