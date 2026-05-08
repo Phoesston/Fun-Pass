@@ -59,7 +59,7 @@ export default function Home() {
       {/* ── Marquee strip ── */}
       <section className="bg-brand-yellow py-4">
         <p className="font-display text-brand-navy text-xl md:text-2xl text-center">
-          🎊 Serving The Suncoast Region &nbsp;•&nbsp; Fully Insured &nbsp;•&nbsp; Setup &amp; Cleanup Included 🎊
+          🎊 Serving The Suncoast Region &nbsp;•&nbsp; Affordable Prices &nbsp;•&nbsp; Unforgettable Experiences 🎊
         </p>
       </section>
 

@@ -53,10 +53,7 @@ export default function Gallery() {
           ) : (
             /* ── Placeholder grid shown until real photos are added ── */
             <div>
-              <p className="text-center text-gray-400 text-sm mb-10 font-medium">
-                Add your photos to <code className="bg-gray-100 px-1.5 py-0.5 rounded">/public/gallery/</code>{' '}
-                and update the <code className="bg-gray-100 px-1.5 py-0.5 rounded">photos</code> array in this file.
-              </p>
+            
               <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
                 {Array.from({ length: PLACEHOLDER_COUNT }).map((_, i) => {
                   const isEven = i % 2 === 0;

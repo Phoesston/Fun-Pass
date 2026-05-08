@@ -191,8 +191,10 @@ export async function sendContactFormCustomer(data: {
       Thanks for reaching out! We've received your inquiry and will get back to you within 24 hours to discuss availability and pricing.
     </p>
     <div style="background:#fff;border-radius:12px;padding:20px;border:1px solid #e2e8f0;margin-bottom:24px;">
+      <!-- Reference code — commented out for now
       <p style="margin:0 0 4px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#94a3b8;">Your Reference Code</p>
       <p style="margin:0 0 16px;font-size:28px;font-weight:900;color:#F59E0B;letter-spacing:4px;">${data.ref}</p>
+      -->
       <table style="width:100%;border-collapse:collapse;font-size:14px;">
         <tr>
           <td style="padding:6px 0;border-bottom:1px solid #e2e8f0;color:#64748b;">Service</td>
@@ -206,11 +208,11 @@ export async function sendContactFormCustomer(data: {
       </table>
       ${message ? `<p style="margin:16px 0 0;font-size:13px;color:#64748b;border-top:1px solid #e2e8f0;padding-top:12px;"><strong>Your message:</strong> "${message}"</p>` : ''}
     </div>
-    <p style="color:#64748b;font-size:13px;margin:0;">
+    <!-- <p style="color:#64748b;font-size:13px;margin:0;">
       Save your reference code — you can use it to follow up with us at <a href="mailto:${ADMIN}">${ADMIN}</a>
-    </p>
+    </p> -->
   `)
-  return sendEmail(data.email, `Inquiry Received — Ref: ${data.ref}`, html)
+  return sendEmail(data.email, `Inquiry Received`, html)
 }
 
 // 10. Contact form — admin notification

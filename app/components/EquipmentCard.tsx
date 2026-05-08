@@ -1,56 +1,179 @@
+'use client';
+
 import Image from 'next/image';
+import { useState, useEffect, useCallback } from 'react';
+
+const categoryConfig: Record<string, { gradient: string; emoji: string }> = {
+  foam:            { gradient: 'from-brand-sky to-cyan-300',       emoji: '🫧' },
+  concessions:     { gradient: 'from-pink-400 to-rose-300',        emoji: '🍬' },
+  'chairs-tables': { gradient: 'from-brand-green to-green-300',    emoji: '🪑' },
+  party:           { gradient: 'from-brand-yellow to-yellow-300',  emoji: '🎉' },
+};
 
 interface EquipmentCardProps {
   name: string;
   description: string;
   imageSrc?: string;
-  category: 'party' | 'foam';
-  bookingHref?: string;
+  images?: string[];
+  category: 'party' | 'foam' | 'concessions' | 'chairs-tables';
 }
 
-export default function EquipmentCard({ name, description, imageSrc, category, bookingHref }: EquipmentCardProps) {
-  const href = bookingHref ?? (category === 'foam' ? '/foam-rentals#book' : '/party-rentals#book');
-  const placeholderGradient =
-    category === 'foam'
-      ? 'from-brand-sky to-cyan-300'
-      : 'from-brand-yellow to-yellow-300';
+export default function EquipmentCard({ name, description, imageSrc, images, category }: EquipmentCardProps) {
+  const config = categoryConfig[category] ?? categoryConfig.party;
+  const [isOpen, setIsOpen] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  const placeholderEmoji = category === 'foam' ? '🫧' : '🎉';
+  const allImages = images ?? (imageSrc ? [imageSrc] : []);
+
+  const prev = useCallback(() => {
+    setCurrentIndex((i) => (i - 1 + allImages.length) % allImages.length);
+  }, [allImages.length]);
+
+  const next = useCallback(() => {
+    setCurrentIndex((i) => (i + 1) % allImages.length);
+  }, [allImages.length]);
+
+  const open = () => { setCurrentIndex(0); setIsOpen(true); };
+  const close = () => setIsOpen(false);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    document.body.style.overflow = 'hidden';
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowLeft') prev();
+      if (e.key === 'ArrowRight') next();
+    };
+    window.addEventListener('keydown', onKey);
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      document.body.style.overflow = '';
+    };
+  }, [isOpen, prev, next]);
 
   return (
-    <div className="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 group flex flex-col">
-      {/* Image */}
-      <div className="relative aspect-[4/3] overflow-hidden">
-        {imageSrc ? (
+    <>
+      {/* Card */}
+      <div
+        className="relative rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 group aspect-[3/4] cursor-pointer"
+        onClick={open}
+        role="button"
+        tabIndex={0}
+        onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') open(); }}
+        aria-label={`View details for ${name}`}
+      >
+        {/* Background — photo or gradient */}
+        {allImages.length > 0 ? (
           <Image
-            src={imageSrc}
+            src={allImages[0]}
             alt={name}
             fill
-            className="object-cover group-hover:scale-105 transition-transform duration-500"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            quality={90}
+            className="object-cover group-hover:scale-105 transition-transform duration-700"
           />
         ) : (
-          <div
-            className={`w-full h-full bg-gradient-to-br ${placeholderGradient} flex flex-col items-center justify-center gap-2`}
-          >
-            <span className="text-6xl">{placeholderEmoji}</span>
-            <span className="text-brand-navy/50 text-xs font-bold uppercase tracking-widest">
-              Photo Coming Soon
-            </span>
+          <div className={`absolute inset-0 bg-gradient-to-br ${config.gradient} flex items-center justify-center`}>
+            <span className="text-8xl opacity-40">{config.emoji}</span>
           </div>
         )}
+
+        {/* Dark gradient scrim */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+
+        {/* Text pinned to the bottom */}
+        <div className="absolute bottom-0 left-0 right-0 p-6">
+          <h3 className="font-display text-2xl text-white leading-tight mb-2 drop-shadow">
+            {name}
+          </h3>
+          <p className="text-white/75 text-sm leading-relaxed line-clamp-3">
+            {description}
+          </p>
+        </div>
       </div>
 
-      {/* Content */}
-      <div className="p-6 flex flex-col flex-1">
-        <h3 className="font-display text-xl text-brand-navy mb-2">{name}</h3>
-        <p className="text-gray-500 text-sm leading-relaxed flex-1 mb-5">{description}</p>
-        <a
-          href={href}
-          className="block text-center bg-brand-navy text-white font-bold py-3 rounded-full text-sm uppercase tracking-wide hover:bg-brand-sky transition-colors"
+      {/* Modal */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm"
+          onClick={close}
         >
-          Get a Quote
-        </a>
-      </div>
-    </div>
+          <div
+            className="bg-white rounded-3xl overflow-hidden w-full max-w-4xl max-h-[90vh] flex flex-col shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Image area */}
+            <div className="relative w-full bg-gray-100 flex-shrink-0" style={{ maxHeight: '65vh' }}>
+              {allImages.length > 0 ? (
+                <Image
+                  src={allImages[currentIndex]}
+                  alt={`${name} — image ${currentIndex + 1}`}
+                  width={1200}
+                  height={900}
+                  sizes="(max-width: 896px) 100vw, 896px"
+                  quality={90}
+                  className="w-full h-auto max-h-[65vh] object-contain"
+                />
+              ) : (
+                <div className={`absolute inset-0 bg-gradient-to-br ${config.gradient} flex items-center justify-center`}>
+                  <span className="text-9xl opacity-40">{config.emoji}</span>
+                </div>
+              )}
+
+              {/* Close button */}
+              <button
+                onClick={close}
+                className="absolute top-3 right-3 z-10 bg-black/50 hover:bg-black/75 text-white rounded-full w-9 h-9 flex items-center justify-center transition-colors text-lg leading-none"
+                aria-label="Close"
+              >
+                ✕
+              </button>
+
+              {/* Prev / Next arrows */}
+              {allImages.length > 1 && (
+                <>
+                  <button
+                    onClick={(e) => { e.stopPropagation(); prev(); }}
+                    className="absolute left-3 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/75 text-white rounded-full w-10 h-10 flex items-center justify-center transition-colors text-xl"
+                    aria-label="Previous image"
+                  >
+                    ‹
+                  </button>
+                  <button
+                    onClick={(e) => { e.stopPropagation(); next(); }}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/75 text-white rounded-full w-10 h-10 flex items-center justify-center transition-colors text-xl"
+                    aria-label="Next image"
+                  >
+                    ›
+                  </button>
+                </>
+              )}
+            </div>
+
+            {/* Dot indicators */}
+            {allImages.length > 1 && (
+              <div className="flex justify-center gap-2 pt-4 pb-1">
+                {allImages.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setCurrentIndex(i)}
+                    aria-label={`Image ${i + 1}`}
+                    className={`h-2 rounded-full transition-all duration-300 ${
+                      i === currentIndex ? 'w-5 bg-brand-navy' : 'w-2 bg-gray-300'
+                    }`}
+                  />
+                ))}
+              </div>
+            )}
+
+            {/* Text */}
+            <div className="px-8 pt-5 pb-8 overflow-y-auto">
+              <h2 className="font-display text-3xl text-brand-navy mb-3">{name}</h2>
+              <p className="text-gray-600 text-base leading-relaxed">{description}</p>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 }

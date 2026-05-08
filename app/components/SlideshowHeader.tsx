@@ -45,7 +45,7 @@ export default function SlideshowHeader({
               i === current ? 'opacity-100' : 'opacity-0'
             }`}
           >
-            <Image src={src} alt="" fill sizes="100vw" quality={90} className="object-cover" priority={i === 0} />
+            <Image src={src} alt="" fill sizes="100vw" quality={90} className="object-cover" priority={i === 0} loading="eager" />
           </div>
         ))
       ) : (

@@ -1,9 +1,10 @@
-export type Category = 'party' | 'foam';
+export type Category = 'party' | 'foam' | 'concessions' | 'chairs-tables';
 
 export interface EquipmentItem {
   name: string;
   description: string;
   imageSrc?: string;
+  images?: string[];
   category: Category;
   featured?: boolean;
 }
@@ -43,7 +44,7 @@ export const partyEquipment: EquipmentItem[] = [
     name: 'Cornhole Set',
     description: 'Custom bean bag toss boards — the ultimate classic outdoor party game.',
     category: 'party',
-    imageSrc: '/party-rentals/cornHole.jpeg',
+    imageSrc: '/party-rentals/cornHole.jpg',
   },
   {
     name: 'Ladder Game',
@@ -64,6 +65,27 @@ export const partyEquipment: EquipmentItem[] = [
     category: 'party',
     imageSrc: '/party-rentals/yardDice.jpeg',
   },
+  {
+    name: 'Nerf Battle Set',
+    description:
+      'Gear up for an epic Nerf battle with our Nerf Battle Set. Includes blasters, darts, and safety goggles for hours of action-packed fun.',
+    category: 'party',
+    images: ['/party-rentals/nerf.png', '/party-rentals/nerfAd.png'],
+  },
+  {
+    name: 'skeeball Game',
+    description:
+      'Bring the arcade home with our skeeball game rental. Perfect for birthday parties, school events, and family fun days.',
+    category: 'party',
+    images: ['/party-rentals/skeeBall.jpg',]
+  },
+  {
+    name: 'Splash Tower Dunk Game',
+    description:
+      'A fun and interactive game where players try to dunk basketballs into a towering basket. Great for outdoor events and family gatherings. Chairs not included.',
+    category: 'party',
+    images: ['/party-rentals/splashTower.jpg', '/party-rentals/splashTower2.jpg', '/party-rentals/splashTower3.jpg'],
+  }
   
 ];
 
@@ -103,6 +125,33 @@ export const foamEquipment: EquipmentItem[] = [
     description:
       'A scaled-down setup perfect for birthday parties in the backyard. Easy and safe for all ages.',
     category: 'foam',
+  },
+];
+
+export const concessionEquipment: EquipmentItem[] = [
+  {
+    name: 'Cotton Candy Machine',
+    description:
+      'Freshly spun cotton candy that kids and adults love. A sweet addition to any birthday party, school event, or festival.',
+    category: 'concessions',
+    images: ['/concessions/cottonCandyMachine.jpg', '/concessions/cottonCandyMachineAd.png'],
+  },
+];
+
+export const chairsTablesEquipment: EquipmentItem[] = [
+  {
+    name: 'Folding Chairs',
+    description:
+      'Sturdy, comfortable folding chairs available in bulk. Perfect for outdoor events, parties, and gatherings of any size.',
+    category: 'chairs-tables',
+    images: ['/chairs-tables/foldingChairs.jpg', '/chairs-tables/foldingChairs2.jpg'],
+  },
+  {
+    name: 'Folding Tables',
+    description:
+      'Durable folding tables perfect for outdoor events and corporate meetings.',
+    category: 'chairs-tables',
+    images: ['/chairs-tables/foldingTable.jpg'],
   },
 ];
 

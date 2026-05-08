@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 
-type ServiceOption = 'Party Rentals' | 'Foam Rentals' | 'Both'
+type ServiceOption = 'Party Rentals' | 'Foam Rentals' | 'Concessions' | 'Chairs & Tables' | 'Both'
 
 interface Props {
   defaultService?: ServiceOption
@@ -12,7 +12,7 @@ type Status = 'idle' | 'loading' | 'success' | 'error'
 
 export default function InquiryForm({ defaultService = 'Party Rentals' }: Props) {
   const [status, setStatus] = useState<Status>('idle')
-  const [ref, setRef] = useState('')
+  // const [ref, setRef] = useState('')
   const [errorMsg, setErrorMsg] = useState('')
 
   const [form, setForm] = useState({
@@ -56,7 +56,7 @@ export default function InquiryForm({ defaultService = 'Party Rentals' }: Props)
         return
       }
 
-      setRef(data.ref)
+      // setRef(data.ref)
       setStatus('success')
     } catch {
       setErrorMsg('Network error — please check your connection and try again.')
@@ -70,14 +70,16 @@ export default function InquiryForm({ defaultService = 'Party Rentals' }: Props)
         <div className="text-5xl mb-4">🎉</div>
         <h3 className="font-display text-2xl text-brand-navy mb-2">We got your inquiry!</h3>
         <p className="text-gray-500 mb-6">
-          We&apos;ll be in touch within 24 hours. Here&apos;s your reference code:
+          We&apos;ll be in touch within 24 hours.
         </p>
+        {/* Reference code — commented out for now
         <div className="inline-block bg-brand-navy rounded-2xl px-8 py-4 mb-6">
           <p className="text-brand-yellow font-black text-3xl tracking-[6px]">{ref}</p>
         </div>
         <p className="text-gray-400 text-sm">
           Save this code — you can use it when following up with us.
         </p>
+        */}
       </div>
     )
   }
@@ -165,6 +167,8 @@ export default function InquiryForm({ defaultService = 'Party Rentals' }: Props)
           >
             <option value="Party Rentals">Party Rentals</option>
             <option value="Foam Rentals">Foam Rentals</option>
+            <option value="Concessions">Concessions</option>
+            <option value="Chairs & Tables">Chairs &amp; Tables</option>
             <option value="Both">Both</option>
           </select>
         </div>
