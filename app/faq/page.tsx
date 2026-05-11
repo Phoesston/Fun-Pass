@@ -3,7 +3,7 @@ import FaqAccordion from '../components/FaqAccordion';
 
 const faqs = [
   {
-    question: 'What areas do you Travel to?',
+    question: 'What areas do you travel to?',
     answer:
       'WE have structured our rentals as DIY pick up/drop off so we can offer lower prices. However,for an additional fee we can provide drop off/pick up to the Palmetto, Parrish, Bradenton, and Lakewood Ranch, and surrounding areas. Contact us for details!',
   },
@@ -15,7 +15,7 @@ const faqs = [
   {
     question: 'What ages is a foam party appropriate for?',
     answer:
-      'Foam parties are loved by children and adults alike! Dogs can even join in on the fun.',
+      'Foam parties are loved by children and adults alike! Even your furry friends can join in the fun! Just make sure to supervise young children and pets around the foam for safety.',
   },
   {
     question: 'Is foam easy to clean up?',
