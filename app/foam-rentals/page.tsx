@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import EquipmentCard from '../components/EquipmentCard';
 import InquiryForm from '../components/InquiryForm';
 import SlideshowHeader from '../components/SlideshowHeader';
@@ -14,27 +13,11 @@ export default function FoamRentals() {
     <>
       <SlideshowHeader
         images={images}
-        overlay="bg-brand-navy/55"
-        className="min-h-[75vh]"
-      >
-        <div className="text-center">
-          <p className="text-brand-sky font-bold uppercase tracking-widest text-sm mb-4">
-            Fun Pass Entertainment
-          </p>
-          <h1 className="font-display text-6xl md:text-7xl text-white mb-5">
-            Foam <span className="text-brand-sky">Rentals</span>
-          </h1>
-          <p className="text-white/80 text-xl max-w-xl mx-auto mb-10">
-            High-powered foam cannons and packages for the most unforgettable parties ever.
-          </p>
-          <a
-            href="#book"
-            className="inline-block bg-brand-yellow text-brand-navy font-bold uppercase tracking-wide px-10 py-4 rounded-full shadow-xl hover:scale-105 transition-transform"
-          >
-            Get a Quote
-          </a>
-        </div>
-      </SlideshowHeader>
+        emoji="🫧"
+        title={<>Foam <span className="text-brand-yellow">Rentals</span></>}
+        subtitle="High-powered foam cannons and packages for the most unforgettable parties ever."
+        overlay="bg-brand-navy/65"
+      />
 
       {/* ── Equipment Grid ── */}
       <section className="py-20 bg-white">
@@ -52,7 +35,7 @@ export default function FoamRentals() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="font-display text-4xl text-brand-navy mb-3">
-              What You&apos;ll <span className="text-brand-sky">Need</span>
+              What You&apos;ll <span className="text-brand-yellow">Need</span>
             </h2>
             <p className="text-gray-500 text-lg">
               Make sure your venue is ready before the foam flies.
@@ -80,15 +63,14 @@ export default function FoamRentals() {
       {/* ── HoneyBook Inquiry ── */}
       <section className="bg-gray-50 py-20" id="book">
         <div className="max-w-2xl mx-auto px-4">
-          <div className="text-center mb-8">
+          <div className="text-center mb-10">
             <h2 className="font-display text-4xl text-brand-navy mb-3">
               Request a <span className="text-brand-yellow">Quote</span>
             </h2>
-            <p className="text-gray-500 text-lg mb-8">
+            <p className="text-gray-500 text-lg">
               Fill out the form and we&apos;ll get back to you within 24 hours!
             </p>
           </div>
-
           <InquiryForm defaultService="Foam Rentals" />
         </div>
       </section>

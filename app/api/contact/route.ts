@@ -27,6 +27,10 @@ export async function POST(req: Request) {
 
   const body = await req.json()
 
+  if (body.hp_check) {
+    return NextResponse.json({ ref: generateRef() }, { status: 200 })
+  }
+
   const parsed = schema.safeParse(body)
   if (!parsed.success) {
     return NextResponse.json({ error: parsed.error.flatten() }, { status: 400 })

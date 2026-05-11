@@ -11,8 +11,8 @@ export default function Footer() {
             <Image
               src="/logos/Fun-PassLogo1.png"
               alt="Fun Pass Entertainment Group"
-              width={320}
-              height={160}
+              width={240}
+              height={240}
               className="h-60 w-auto"
             />
           </div>

@@ -23,6 +23,7 @@ export default function InquiryForm({ defaultService = 'Party Rentals' }: Props)
     service:    defaultService as ServiceOption,
     event_date: '',
     message:    '',
+    hp_check:   '', // honeypot — must stay empty
   })
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) {
@@ -45,6 +46,7 @@ export default function InquiryForm({ defaultService = 'Party Rentals' }: Props)
           service:    form.service,
           event_date: form.event_date,
           message:    form.message || undefined,
+          hp_check:   form.hp_check,
         }),
       })
 
@@ -198,6 +200,20 @@ export default function InquiryForm({ defaultService = 'Party Rentals' }: Props)
           value={form.message ?? ''}
           onChange={handleChange}
           className={inputClass}
+        />
+      </div>
+
+      {/* Honeypot — hidden from real users, bots fill it in */}
+      <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', overflow: 'hidden' }}>
+        <label htmlFor="hp_check">Website</label>
+        <input
+          id="hp_check"
+          name="hp_check"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          value={form.hp_check}
+          onChange={handleChange}
         />
       </div>
 

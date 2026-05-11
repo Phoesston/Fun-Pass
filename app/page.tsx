@@ -22,7 +22,7 @@ export default function Home() {
             src="/logos/Fun-PassLogo1.png"
             alt="Fun Pass Entertainment Group"
             width={220}
-            height={110}
+            height={220}
             className="mx-auto mb-3 drop-shadow-2xl rounded-2xl"
             priority
           />

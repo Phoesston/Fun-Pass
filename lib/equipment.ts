@@ -13,7 +13,7 @@ export const partyEquipment: EquipmentItem[] = [
   {
     name: 'Giant Connect Four',
     description:
-      'The classic 4-in-a-row game blown up to party size. A crowd-pleaser for all ages at any event.',
+      'Drop it in to win it — this towering 4-in-a-row showdown is the first game guests run to and the last one they leave. Competitive, fast, and perfect for every age.',
     category: 'party',
     featured: true,
     images: ['/party-rentals/connectFour.png', '/party-rentals/connectFour2.jpg'],
@@ -21,143 +21,143 @@ export const partyEquipment: EquipmentItem[] = [
   {
     name: 'Giant Jenga',
     description:
-      "Stack those oversized blocks and hope it doesn't tumble! Hours of laughs guaranteed.",
+      'One wrong pull and the whole thing comes crashing down. Giant Jenga turns a backyard classic into a full-on crowd moment — the suspense is half the fun.',
     category: 'party',
     imageSrc: '/party-rentals/giantJenga.jpeg',
   },
   {
     name: 'Giant Guess Who',
     description:
-      'Oversized version of the classic guessing game — perfect for lawn parties, corporate events, and family reunions.',
+      'Is it someone with glasses? A hat? Blown up to lawn size, this nostalgic guessing game sparks laughs and friendly trash-talk for kids and adults alike.',
     category: 'party',
     imageSrc: '/party-rentals/giantGuessWho.jpeg',
   },
   {
     name: 'Kerplunk Game',
     description:
-      'Colorful and fun, this giant Kerplunk game is a hit at birthday parties and school events. Watch the marbles fly!',
+      'Pull a stick — hold your breath — pray the marbles stay put. Kerplunk is deceptively simple and wildly addictive, keeping guests glued and coming back for more.',
     category: 'party',
     featured: true,
     imageSrc: '/party-rentals/kerPlunk.jpeg',
   },
   {
     name: 'Cornhole Set',
-    description: 'Custom bean bag toss boards — the ultimate classic outdoor party game.',
+    description:
+      'The ultimate backyard staple. Our custom boards are built to last and easy to set up anywhere — grass, concrete, or poolside. Teams, tournaments, or casual tossing, it never gets old.',
     category: 'party',
     imageSrc: '/party-rentals/cornHole.jpg',
   },
   {
     name: 'Ladder Game',
     description:
-      'A fun and competitive game where players toss rings onto a ladder structure. Great for all ages and skill levels.',
+      'Toss your bolas, wrap the rungs, and rack up the points. Ladder Ball is easy to learn but tough to master — ideal for all ages and a natural conversation starter at any gathering.',
     category: 'party',
     imageSrc: '/party-rentals/ladderGame.jpeg',
   },
   {
     name: 'Tetris Tumbler',
-    description: 'Stack and balance these giant Tetris blocks — a fun challenge for kids and adults alike. Perfect for parties and team-building events.',
+    description:
+      'Stack the iconic Tetris shapes as high as you dare without sending the whole tower sideways. A fresh twist on giant block stacking that brings out everyone\'s inner architect.',
     category: 'party',
     imageSrc: '/party-rentals/tetrisTumble.jpg',
   },
   {
     name: 'Yard Dice',
-    description: 'Large-scale dice for outdoor games and activities. Perfect for family gatherings and community events.',
+    description:
+      'Roll big, play bigger. These oversized dice open the door to Farkle, Yahtzee, and a dozen other games your guests can make up on the spot — no table required.',
     category: 'party',
     imageSrc: '/party-rentals/yardDice.jpeg',
   },
   {
     name: 'Nerf Battle Set',
     description:
-      'Gear up for an epic Nerf battle with our Nerf Battle Set. Includes blasters, darts, and safety goggles for hours of action-packed fun.',
+      'Lock and load. Our Nerf Battle Set comes packed with blasters, darts, and safety goggles so guests can go all-out without anyone getting hurt. Kids love it — so do adults.',
     category: 'party',
     images: ['/party-rentals/nerf.png', '/party-rentals/nerfAd.png'],
   },
   {
-    name: 'skeeball Game',
+    name: 'Skee-Ball Game',
     description:
-      'Bring the arcade home with our skeeball game rental. Perfect for birthday parties, school events, and family fun days.',
+      'Roll it up the ramp, aim for the center ring, and chase that high score. Skee-Ball is pure arcade nostalgia — a hit at birthday parties, block parties, and everything in between.',
     category: 'party',
-    images: ['/party-rentals/skeeBall.jpg',]
+    images: ['/party-rentals/skeeBall.jpg'],
   },
   {
     name: 'Splash Tower Dunk Game',
     description:
-      'A fun and interactive game where players try to dunk basketballs into a towering basket. Great for outdoor events and family gatherings. Chairs not included.',
+      'Launch the ball, soak your target. This outdoor dunk game brings the thrill of the carnival dunk tank to your backyard — perfect for beating the Florida heat at summer events.',
     category: 'party',
     images: ['/party-rentals/splashTower.jpg', '/party-rentals/splashTower2.jpg', '/party-rentals/splashTower3.jpg'],
   },
   {
     name: 'Golf Pong',
     description:
-      'A fun twist on the classic beer pong game, Golf Pong is perfect for backyard parties and tailgates. Players use golf clubs to putt balls into cups for a competitive and entertaining experience.',
+      'Putt the ball into the cup — sounds easy until it isn\'t. Golf Pong mashes mini golf with party games for a hilarious, competitive experience that works for all skill levels.',
     category: 'party',
     images: ['/party-rentals/golfPong.jpg'],
-  }
-  
+  },
 ];
 
 export const foamEquipment: EquipmentItem[] = [
   {
     name: 'Foam Cannon Rental',
     description:
-      'Our foam cannon rental is the ultimate party starter! Perfect for birthdays, school events, and summer fun. Easy to set up and safe for all ages.',
+      'Watch the yard disappear under a mountain of foam. Our high-powered cannon cranks out clouds of eco-safe suds that kids absolutely lose their minds over — and honestly, so do the adults.',
     category: 'foam',
     images: ['/foam-rentals/foamCannonAd.png', '/foam-rentals/foamCannon.jpg', '/foam-rentals/foamCannon2.jpg'],
-
   },
-  
 ];
 
 export const concessionEquipment: EquipmentItem[] = [
   {
     name: 'Cotton Candy Machine',
     description:
-      'Freshly spun cotton candy that kids and adults love. A sweet addition to any birthday party, school event, or festival.',
+      'Spun fresh right at your event — fluffy clouds of cotton candy that disappear the second you put them out. A guaranteed favorite for guests of every age.',
     category: 'concessions',
-    images: [ '/concessions/cottonCandyMachineAd.png','/concessions/cottonCandyMachine.jpg'],
+    images: ['/concessions/cottonCandyMachineAd.png', '/concessions/cottonCandyMachine.jpg'],
   },
   {
     name: 'Snow Cone Machine',
     description:
-      'Beat the heat with our snow cone machine rental. Perfect for summer parties, school events, and outdoor festivals.',
+      'Shaved ice, bright syrup, instant happiness. Our snow cone machine is the coolest thing you can add to a Florida summer event — literally.',
     category: 'concessions',
     images: ['/concessions/snowConeMachineAd.png', '/concessions/snowConeMachine.jpg', '/concessions/snowConeMachine1.jpg'],
   },
   {
     name: 'Popcorn Machine',
     description:
-      'Serve up fresh popcorn at your next event with our popcorn machine rental. Great for movie nights, birthday parties, and school events.',
+      'Hot, buttery, fresh-popped popcorn that fills the air with that irresistible smell the moment it starts. Sets the mood and keeps guests snacking all evening long.',
     category: 'concessions',
     images: ['/concessions/popCornMachineAd.png', '/concessions/popCornMachine.jpg', '/concessions/popCornMachine1.jpg'],
   },
   {
     name: 'Hot Dog Machine',
     description:
-      'Serve up delicious hot dogs at your next event with our hot dog machine rental. Great for picnics, birthday parties, and school events.',
+      'Perfectly warmed hot dogs ready to grab and go — no grill, no fuss. A crowd-pleasing classic that keeps hungry guests happy without pulling you away from the party.',
     category: 'concessions',
     images: ['/concessions/hotdogMachineAd.png', '/concessions/hotdogMachine.jpg'],
   },
   {
     name: 'Snack Machine Bundle',
     description:
-      'A complete snack machine setup including popcorn, snow cones, and hot dogs for the ultimate event experience.',
+      'Why choose one when you can have them all? The Snack Bundle brings popcorn, snow cones, and hot dogs together in one complete setup — everything you need to feed a crowd and wow your guests.',
     category: 'concessions',
     images: ['/concessions/foodMachineBundleAd.png'],
-  }
+  },
 ];
 
 export const chairsTablesEquipment: EquipmentItem[] = [
   {
     name: 'Folding Chairs',
     description:
-      'Sturdy, comfortable folding chairs available in bulk. Perfect for outdoor events, parties, and gatherings of any size.',
+      'Comfortable, sturdy, and available in bulk — our folding chairs set up fast and hold up all night. Whether you need 10 or 100, we\'ve got you covered.',
     category: 'chairs-tables',
     images: ['/chairs-tables/foldingChairs.jpg', '/chairs-tables/foldingChairs2.jpg'],
   },
   {
     name: 'Folding Tables',
     description:
-      'Durable folding tables perfect for outdoor events and corporate meetings.',
+      'Solid, versatile, and easy to arrange however you need them. Our folding tables work for buffets, gift tables, activity stations, and everything in between.',
     category: 'chairs-tables',
     images: ['/chairs-tables/foldingTable.jpg'],
   },

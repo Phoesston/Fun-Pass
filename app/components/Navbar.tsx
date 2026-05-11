@@ -76,7 +76,7 @@ export default function Navbar() {
               src="/logos/Fun-PassLogo1.png"
               alt="Fun Pass Entertainment Group"
               width={300}
-              height={150}
+              height={300}
               className={`w-auto transition-all duration-300 ${scrolled ? 'h-20' : 'h-25'}`}
               priority
             />
