@@ -3,13 +3,12 @@ import Image from 'next/image';
 import SlideshowHeader from './components/SlideshowHeader';
 
 const heroImages = [
+  '/party-rentals/nerf.png',
+  '/concessions/foodMachineBundleAd.png',
   '/party-rentals/cornHole.jpg',
   '/foam-rentals/foam1.jpg',
-  '/party-rentals/giantJenga.jpeg',
-  '/foam-rentals/foam2.JPG',
+  '/foam-rentals/foamCannonAd.png',
   '/party-rentals/tetrisTumble.jpg',
-  '/foam-rentals/foam3.JPG',
-  '/party-rentals/yardDice.jpeg',
   '/party-rentals/giantGuessWho.jpeg',
 ];
 
@@ -69,7 +68,7 @@ export default function Home() {
       {/* ── Marquee strip ── */}
       <section className="bg-brand-yellow py-4">
         <p className="font-display text-brand-navy text-xl md:text-2xl text-center">
-          🎊 Serving The Suncoast Region &nbsp;•&nbsp; Affordable Prices &nbsp;•&nbsp; Unforgettable Experiences 🎊
+          🎊 Serving The Suncoast Region &nbsp;•&nbsp; Affordable Prices &nbsp;•&nbsp; Veteran-Owned Business 🎊
         </p>
       </section>
 
@@ -129,12 +128,11 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { emoji: '📍', title: 'Local & Dependable', desc: 'We\'re based right here in Palmetto, FL. When you book with us, you\'re supporting a local business that genuinely cares about your community and your event.' },
               { emoji: '💰', title: 'Transparent Pricing', desc: 'No hidden fees, no surprises. We keep our pricing straightforward and affordable so you can plan your event budget with confidence.' },
               { emoji: '🎯', title: 'Right for Any Occasion', desc: 'Birthday parties, school events, corporate outings, neighborhood block parties — our equipment lineup is designed to fit events of all sizes and styles.' },
-              { emoji: '🚚', title: 'Delivery & Setup Included', desc: 'We handle the heavy lifting so you don\'t have to. We\'ll deliver, set everything up before your event starts, and come back to break it all down when you\'re done.' },
               { emoji: '🤝', title: 'Personalized Service', desc: 'You\'re not just a transaction. We take the time to understand your event, answer your questions, and make sure you get exactly what you need for a great experience.' },
               { emoji: '✅', title: 'Easy Booking Process', desc: 'Just browse our rentals, send us an inquiry, and we\'ll get back to you within 24 hours to lock in the details. Simple, fast, and hassle-free.' },
             ].map(({ emoji, title, desc }) => (
@@ -145,25 +143,39 @@ export default function Home() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
 
-          {/* Service Area */}
-          <div className="bg-brand-navy rounded-3xl px-8 py-10 text-center">
-            <p className="text-brand-yellow font-bold uppercase tracking-widest text-sm mb-3">Proudly Serving</p>
-            <h3 className="font-display text-3xl text-white mb-5">The Suncoast Region & Beyond</h3>
-            <div className="flex flex-wrap justify-center gap-3 mb-6">
+      {/* ── Service Area ── */}
+      <section className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row items-start gap-14">
+            <div className="lg:w-2/5 shrink-0">
+              <p className="text-brand-sky font-bold uppercase tracking-widest text-sm mb-3">Where We Serve</p>
+              <h2 className="font-display text-4xl md:text-5xl text-brand-navy leading-tight mb-4">
+                Proudly Serving<br />the Suncoast
+              </h2>
+              <p className="text-gray-500 text-lg leading-relaxed mb-8">
+                We serve anywhere across the greater Tampa Bay &amp; Sarasota area. Don&apos;t see your city? Reach out — we may still be able to make it work.
+              </p>
+              <Link
+                href="/contact"
+                className="inline-block bg-brand-navy text-white font-bold px-8 py-4 rounded-full uppercase tracking-wide hover:scale-105 transition-transform shadow-lg"
+              >
+                Contact Us
+              </Link>
+            </div>
+            <div className="flex flex-wrap gap-3 content-start">
               {['Palmetto', 'Bradenton', 'Parrish', 'Ellenton', 'Lakewood Ranch', 'Sarasota', 'Ruskin', 'Sun City Center', 'Apollo Beach', 'Terra Ceia'].map((city) => (
-                <span key={city} className="bg-white/10 text-white/90 text-sm font-medium px-4 py-1.5 rounded-full border border-white/20">
+                <span
+                  key={city}
+                  className="flex items-center gap-2 bg-gray-50 border border-gray-200 text-brand-navy font-semibold text-sm px-5 py-2.5 rounded-full hover:border-brand-sky hover:bg-brand-sky/5 transition-colors"
+                >
+                  <span className="text-brand-sky text-xs">📍</span>
                   {city}
                 </span>
               ))}
             </div>
-            <p className="text-white/55 text-sm">
-              Don&apos;t see your city?{' '}
-              <Link href="/contact" className="text-brand-yellow hover:underline font-semibold">
-                Contact us
-              </Link>{' '}
-              — we may still be able to serve your area.
-            </p>
           </div>
         </div>
       </section>
@@ -177,18 +189,30 @@ export default function Home() {
           <p className="text-white/75 text-xl mb-10">
             Book your next event with Fun Pass Entertainment Group today!
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-wrap gap-4 justify-center">
             <Link
               href="/party-rentals"
               className="bg-brand-yellow text-brand-navy font-bold px-8 py-4 rounded-full text-lg uppercase hover:scale-105 transition-transform"
             >
-              Party Rentals
+              🎉 Party Rentals
             </Link>
             <Link
               href="/foam-rentals"
               className="bg-brand-sky text-brand-navy font-bold px-8 py-4 rounded-full text-lg uppercase hover:scale-105 transition-transform"
             >
-              Foam Rentals
+              🫧 Foam Rentals
+            </Link>
+            <Link
+              href="/concessions"
+              className="bg-brand-green text-white font-bold px-8 py-4 rounded-full text-lg uppercase hover:scale-105 transition-transform"
+            >
+              🍿 Concessions
+            </Link>
+            <Link
+              href="/chairs-tables"
+              className="bg-white text-brand-navy font-bold px-8 py-4 rounded-full text-lg uppercase hover:scale-105 transition-transform"
+            >
+              🪑 Chairs &amp; Tables
             </Link>
           </div>
         </div>

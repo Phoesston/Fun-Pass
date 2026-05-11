@@ -85,6 +85,13 @@ export const partyEquipment: EquipmentItem[] = [
       'A fun and interactive game where players try to dunk basketballs into a towering basket. Great for outdoor events and family gatherings. Chairs not included.',
     category: 'party',
     images: ['/party-rentals/splashTower.jpg', '/party-rentals/splashTower2.jpg', '/party-rentals/splashTower3.jpg'],
+  },
+  {
+    name: 'Golf Pong',
+    description:
+      'A fun twist on the classic beer pong game, Golf Pong is perfect for backyard parties and tailgates. Players use golf clubs to putt balls into cups for a competitive and entertaining experience.',
+    category: 'party',
+    images: ['/party-rentals/golfPong.jpg'],
   }
   
 ];

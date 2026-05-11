@@ -34,7 +34,7 @@ export default function About() {
               <div className="relative">
                 <div className="absolute -inset-4 bg-gradient-to-br from-brand-yellow/30 to-brand-sky/30 rounded-3xl blur-xl" />
                 <Image
-                  src="/logos/Fun-PassLogo.png"
+                  src="/logos/Fun-PassLogo1.png"
                   alt="Fun Pass Entertainment Group"
                   width={420}
                   height={420}
@@ -92,8 +92,6 @@ export default function About() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { emoji: '🎖️', title: 'Veteran-Owned', body: 'Built on military values — reliability, integrity, and service above self.' },
-              { emoji: '✅', title: 'Fully Insured', body: 'We carry full liability insurance so you can relax and enjoy your event.' },
-              { emoji: '🚚', title: 'We Handle Everything', body: 'Delivery, setup, and cleanup all included — zero stress for you.' },
               { emoji: '🎉', title: 'All Ages Welcome', body: 'Our rentals are designed for kids and adults to enjoy together.' },
               { emoji: '💧', title: 'Safe & Clean', body: 'Equipment is sanitized before every event. Your safety is our priority.' },
               { emoji: '🤝', title: 'Community First', body: 'Proud Palmetto residents supporting families and local organizations.' },

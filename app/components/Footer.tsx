@@ -36,11 +36,16 @@ export default function Footer() {
                   Foam Rentals
                 </Link>
               </li>
-              {/* <li>
-                <Link href="/gallery" className="text-white/70 hover:text-brand-yellow transition-colors">
-                  Gallery
+              <li>
+                <Link href="/concessions" className="text-white/70 hover:text-brand-yellow transition-colors">
+                  Concessions
                 </Link>
-              </li> */}
+              </li>
+              <li>
+                <Link href="/chairs-tables" className="text-white/70 hover:text-brand-yellow transition-colors">
+                  Chairs &amp; Tables
+                </Link>
+              </li>
             </ul>
           </div>
 

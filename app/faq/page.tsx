@@ -3,39 +3,24 @@ import FaqAccordion from '../components/FaqAccordion';
 
 const faqs = [
   {
-    question: 'What areas do you serve?',
+    question: 'What areas do you Travel to?',
     answer:
-      'We currently serve the local surrounding area. Contact us through the booking form to confirm availability at your location.',
+      'WE have structured our rentals as DIY pick up/drop off so we can offer lower prices. However,for an additional fee we can provide drop off/pick up to the Palmetto, Parrish, Bradenton, and Lakewood Ranch, and surrounding areas. Contact us for details!',
   },
   {
-    question: 'How far in advance should I book?',
+    question: 'How much space is needed for the foam cannon?',
     answer:
-      'We recommend booking at least 1–2 weeks in advance to guarantee availability, especially for weekends and holidays. Last-minute bookings may be available — just reach out!',
+      'We recommend at least a 20×20 ft open outdoor area for the foam cannon. Foam parties should never be done in a pool for safety reasons.',
   },
   {
-    question: 'Does the rental include setup and cleanup?',
+    question: 'What ages is a foam party appropriate for?',
     answer:
-      'Yes! All rentals include full delivery, setup, and cleanup. You just focus on having fun — we handle the rest.',
+      'Foam parties are loved by children and adults alike! Dogs can even join in on the fun.',
   },
   {
-    question: 'Is the foam safe for kids?',
+    question: 'Is foam easy to clean up?',
     answer:
-      'Absolutely. We use a non-toxic, biodegradable foam solution that is safe for all ages, including young children. It rinses off easily with water.',
-  },
-  {
-    question: 'What happens if it rains on my event day?',
-    answer:
-      'Weather happens! Contact us as soon as possible and we will work with you to reschedule at no extra charge, subject to availability.',
-  },
-  {
-    question: 'Do you require a deposit?',
-    answer:
-      'Yes, a deposit is required to hold your date. The remaining balance is due before or on the day of the event. Details are handled through HoneyBook during booking.',
-  },
-  {
-    question: 'How much space do I need for the foam cannon?',
-    answer:
-      'We recommend at least a 20×20 ft open outdoor area for the foam cannon. Larger packages may require more space — we will confirm during booking.',
+      'One of the best things about foam parties is that the foam is made from a biodegradable, non-toxic solution that breaks down quickly and can be easily cleaned with water.',
   },
   {
     question: 'Can I rent multiple items for the same event?',
@@ -43,14 +28,9 @@ const faqs = [
       'Yes! Many clients bundle party games with foam rentals for the ultimate event experience. Just mention everything you need in your inquiry.',
   },
   {
-    question: 'Are you insured?',
-    answer:
-      'Yes, Fun Pass Entertainment Group is fully insured with general liability coverage for every event.',
-  },
-  {
     question: 'How do I book?',
     answer:
-      'Click "Get a Quote" on any equipment page or the "Book Now" button in the navigation. You will be taken to our HoneyBook form where you can submit your event details and we will get back to you within 24 hours.',
+      'Click "Book Now" on any equipment page or the "Book Now" button in the navigation. You will be taken to our form where you can submit your event details and we will get back to you within 24 hours.',
   },
 ];
 
