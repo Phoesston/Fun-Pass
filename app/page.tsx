@@ -5,7 +5,7 @@ import SlideshowHeader from './components/SlideshowHeader';
 import { featuredItems } from '../lib/equipment';
 
 const heroImages = [
-  '/party-rentals/cornHole.jpeg',
+  '/party-rentals/cornHole.jpg',
   '/foam-rentals/foam1.jpg',
   '/party-rentals/giantJenga.jpeg',
   '/foam-rentals/foam2.JPG',
@@ -22,7 +22,7 @@ export default function Home() {
       <SlideshowHeader images={heroImages} overlay="bg-black/45" className="min-h-screen">
         <div className="text-center px-4 max-w-4xl mx-auto pt-20">
           <Image
-            src="/logos/Fun-PassLogo.png"
+            src="/logos/Fun-PassLogo1.png"
             alt="Fun Pass Entertainment Group"
             width={220}
             height={110}
@@ -39,7 +39,7 @@ export default function Home() {
           <p className="text-white/85 text-xl md:text-2xl mb-10 font-medium">
             Premium party &amp; foam rentals for birthdays, corporate events, and more.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-wrap gap-4 justify-center">
             <Link
               href="/party-rentals"
               className="bg-brand-yellow text-brand-navy font-bold px-8 py-4 rounded-full text-lg uppercase tracking-wide hover:scale-105 transition-transform shadow-xl"
@@ -51,6 +51,18 @@ export default function Home() {
               className="bg-brand-sky text-brand-navy font-bold px-8 py-4 rounded-full text-lg uppercase tracking-wide hover:scale-105 transition-transform shadow-xl"
             >
               🫧 Foam Rentals
+            </Link>
+            <Link
+              href="/concessions"
+              className="bg-brand-green text-white font-bold px-8 py-4 rounded-full text-lg uppercase tracking-wide hover:scale-105 transition-transform shadow-xl"
+            >
+              🍿 Concessions
+            </Link>
+            <Link
+              href="/chairs-tables"
+              className="bg-white text-brand-navy font-bold px-8 py-4 rounded-full text-lg uppercase tracking-wide hover:scale-105 transition-transform shadow-xl"
+            >
+              🪑 Chairs &amp; Tables
             </Link>
           </div>
         </div>

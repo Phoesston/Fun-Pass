@@ -16,7 +16,7 @@ export const partyEquipment: EquipmentItem[] = [
       'The classic 4-in-a-row game blown up to party size. A crowd-pleaser for all ages at any event.',
     category: 'party',
     featured: true,
-    imageSrc: '/party-rentals/giantConnect4.jpeg',
+    images: ['/party-rentals/connectFour.png', '/party-rentals/connectFour2.jpg'],
   },
   {
     name: 'Giant Jenga',
@@ -91,41 +91,14 @@ export const partyEquipment: EquipmentItem[] = [
 
 export const foamEquipment: EquipmentItem[] = [
   {
-    name: 'Foam Cannon Deluxe',
+    name: 'Foam Cannon Rental',
     description:
-      'Our most popular rental — a high-powered cannon that floods any space with thick, safe foam.',
+      'Our foam cannon rental is the ultimate party starter! Perfect for birthdays, school events, and summer fun. Easy to set up and safe for all ages.',
     category: 'foam',
-    featured: true,
+    images: ['/foam-rentals/foamCannonAd.png', '/foam-rentals/foamCannon.jpg', '/foam-rentals/foamCannon2.jpg'],
+
   },
-  {
-    name: 'Foam Party Package',
-    description:
-      'Everything you need in one bundle: cannon, foam solution, and full setup included.',
-    category: 'foam',
-  },
-  {
-    name: 'Foam Pit Setup',
-    description:
-      'Create a foam pit experience perfect for kids and adults at outdoor events and festivals.',
-    category: 'foam',
-  },
-  {
-    name: 'Dual Cannon Package',
-    description:
-      'Two cannons running simultaneously for large events, school field days, and big crowds.',
-    category: 'foam',
-  },
-  {
-    name: 'Foam & Snow Cone Combo',
-    description: 'Pair your foam party with icy snow cones — the ultimate summer event combo.',
-    category: 'foam',
-  },
-  {
-    name: 'Backyard Foam Starter',
-    description:
-      'A scaled-down setup perfect for birthday parties in the backyard. Easy and safe for all ages.',
-    category: 'foam',
-  },
+  
 ];
 
 export const concessionEquipment: EquipmentItem[] = [
@@ -134,8 +107,36 @@ export const concessionEquipment: EquipmentItem[] = [
     description:
       'Freshly spun cotton candy that kids and adults love. A sweet addition to any birthday party, school event, or festival.',
     category: 'concessions',
-    images: ['/concessions/cottonCandyMachine.jpg', '/concessions/cottonCandyMachineAd.png'],
+    images: [ '/concessions/cottonCandyMachineAd.png','/concessions/cottonCandyMachine.jpg'],
   },
+  {
+    name: 'Snow Cone Machine',
+    description:
+      'Beat the heat with our snow cone machine rental. Perfect for summer parties, school events, and outdoor festivals.',
+    category: 'concessions',
+    images: ['/concessions/snowConeMachineAd.png', '/concessions/snowConeMachine.jpg', '/concessions/snowConeMachine1.jpg'],
+  },
+  {
+    name: 'Popcorn Machine',
+    description:
+      'Serve up fresh popcorn at your next event with our popcorn machine rental. Great for movie nights, birthday parties, and school events.',
+    category: 'concessions',
+    images: ['/concessions/popCornMachineAd.png', '/concessions/popCornMachine.jpg', '/concessions/popCornMachine1.jpg'],
+  },
+  {
+    name: 'Hot Dog Machine',
+    description:
+      'Serve up delicious hot dogs at your next event with our hot dog machine rental. Great for picnics, birthday parties, and school events.',
+    category: 'concessions',
+    images: ['/concessions/hotdogMachineAd.png', '/concessions/hotdogMachine.jpg'],
+  },
+  {
+    name: 'Snack Machine Bundle',
+    description:
+      'A complete snack machine setup including popcorn, snow cones, and hot dogs for the ultimate event experience.',
+    category: 'concessions',
+    images: ['/concessions/foodMachineBundleAd.png'],
+  }
 ];
 
 export const chairsTablesEquipment: EquipmentItem[] = [

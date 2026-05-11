@@ -14,7 +14,7 @@ const rentalLinks = [
 
 const topLinks = [
   { href: '/',        label: 'Home' },
-  { href: '/gallery', label: 'Gallery' },
+  // { href: '/gallery', label: 'Gallery' },
   { href: '/about',   label: 'About' },
   { href: '/faq',     label: 'FAQ' },
   { href: '/contact', label: 'Contact' },
@@ -73,11 +73,11 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
             <Image
-              src="/logos/Fun-PassLogo.png"
+              src="/logos/Fun-PassLogo1.png"
               alt="Fun Pass Entertainment Group"
               width={300}
               height={150}
-              className={`w-auto transition-all duration-300 ${scrolled ? 'h-20' : 'h-35'}`}
+              className={`w-auto transition-all duration-300 ${scrolled ? 'h-20' : 'h-25'}`}
               priority
             />
           </Link>

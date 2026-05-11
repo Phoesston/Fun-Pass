@@ -9,7 +9,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <Image
-              src="/logos/Fun-PassLogo.png"
+              src="/logos/Fun-PassLogo1.png"
               alt="Fun Pass Entertainment Group"
               width={320}
               height={160}
@@ -36,11 +36,11 @@ export default function Footer() {
                   Foam Rentals
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link href="/gallery" className="text-white/70 hover:text-brand-yellow transition-colors">
                   Gallery
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
 

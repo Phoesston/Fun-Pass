@@ -63,6 +63,7 @@ export default function EquipmentCard({ name, description, imageSrc, images, cat
         aria-label={`View details for ${name}`}
       >
         {/* Background — photo or gradient */}
+        <div className={`absolute inset-0 bg-gradient-to-br ${config.gradient}`} />
         {allImages.length > 0 ? (
           <Image
             src={allImages[0]}
@@ -70,10 +71,10 @@ export default function EquipmentCard({ name, description, imageSrc, images, cat
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             quality={90}
-            className="object-cover group-hover:scale-105 transition-transform duration-700"
+            className="object-contain group-hover:scale-105 transition-transform duration-700"
           />
         ) : (
-          <div className={`absolute inset-0 bg-gradient-to-br ${config.gradient} flex items-center justify-center`}>
+          <div className="absolute inset-0 flex items-center justify-center">
             <span className="text-8xl opacity-40">{config.emoji}</span>
           </div>
         )}

@@ -38,7 +38,7 @@ export default function About() {
                   alt="Fun Pass Entertainment Group"
                   width={420}
                   height={420}
-                  className="relative w-full max-w-sm drop-shadow-2xl"
+                  className="relative w-full max-w-sm h-auto drop-shadow-2xl"
                 />
               </div>
             </div>

@@ -5,7 +5,7 @@ import { partyEquipment } from '../../lib/equipment';
 
 const images = [
   '/party-rentals/kerPlunk.jpeg',
-  '/party-rentals/cornHole.jpeg',
+  '/party-rentals/cornHole.jpg',
   '/party-rentals/tetrisTumble.jpg',
 ];
 
