@@ -1,8 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import EquipmentCard from './components/EquipmentCard';
 import SlideshowHeader from './components/SlideshowHeader';
-import { featuredItems } from '../lib/equipment';
 
 const heroImages = [
   '/party-rentals/cornHole.jpg',
@@ -75,72 +73,97 @@ export default function Home() {
         </p>
       </section>
 
-      {/* ── Services ── */}
+      {/* ── How It Works ── */}
       <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <h2 className="font-display text-4xl md:text-5xl text-brand-navy mb-4">What We Offer</h2>
+            <h2 className="font-display text-4xl md:text-5xl text-brand-navy mb-4">How It Works</h2>
             <p className="text-gray-500 text-lg max-w-xl mx-auto">
-              From giant lawn games to epic foam parties — we bring the fun to you.
+              Getting the party started is easier than you think.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Link
-              href="/party-rentals"
-              className="bg-gradient-to-br from-brand-yellow/20 to-yellow-50 rounded-3xl p-8 text-center hover:shadow-xl transition-all hover:-translate-y-1 group"
-            >
-              <div className="text-6xl mb-4">🎮</div>
-              <h3 className="font-display text-2xl text-brand-navy mb-3">Party Rentals</h3>
-              <p className="text-gray-600 text-sm">
-                Giant games, snow cones, carnival fun — perfect for any event.
-              </p>
-            </Link>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+            {/* Connector line (desktop only) */}
+            <div className="hidden md:block absolute top-14 left-1/3 right-1/3 h-0.5 bg-brand-yellow/40" />
 
-            <Link
-              href="/foam-rentals"
-              className="bg-gradient-to-br from-brand-sky/20 to-cyan-50 rounded-3xl p-8 text-center hover:shadow-xl transition-all hover:-translate-y-1 group"
-            >
-              <div className="text-6xl mb-4">🫧</div>
-              <h3 className="font-display text-2xl text-brand-navy mb-3">Foam Rentals</h3>
-              <p className="text-gray-600 text-sm">
-                High-powered foam cannons for the most memorable parties ever.
-              </p>
-            </Link>
+            {[
+              { step: '1', emoji: '🎉', title: 'Browse Our Rentals', desc: 'Explore our equipment and find what fits your event — games, foam, concessions, chairs & tables, and more.' },
+              { step: '2', emoji: '📋', title: 'Send an Inquiry', desc: 'Ready to book? Fill out our simple inquiry form with your event details and we\'ll take it from there.' },
+              { step: '3', emoji: '📬', title: 'We\'ll Reach Out', desc: 'We\'ll review your request and get back to you within 24 hours to confirm availability and finalize everything.' },
+            ].map(({ step, emoji, title, desc }) => (
+              <div key={step} className="flex flex-col items-center text-center">
+                <div className="relative mb-6">
+                  <div className="w-28 h-28 rounded-full bg-brand-yellow/15 flex items-center justify-center text-5xl">
+                    {emoji}
+                  </div>
+                  <span className="absolute -top-1 -right-1 w-8 h-8 rounded-full bg-brand-navy text-white text-sm font-bold flex items-center justify-center">
+                    {step}
+                  </span>
+                </div>
+                <h3 className="font-display text-2xl text-brand-navy mb-3">{title}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
+              </div>
+            ))}
+          </div>
 
+          <div className="text-center mt-14">
             <Link
-              href="/gallery"
-              className="bg-gradient-to-br from-brand-green/20 to-green-50 rounded-3xl p-8 text-center hover:shadow-xl transition-all hover:-translate-y-1 group"
+              href="/party-rentals#book"
+              className="inline-block bg-brand-yellow text-brand-navy font-bold px-10 py-4 rounded-full text-lg uppercase tracking-wide hover:scale-105 transition-transform shadow-lg"
             >
-              <div className="text-6xl mb-4">📸</div>
-              <h3 className="font-display text-2xl text-brand-navy mb-3">Gallery</h3>
-              <p className="text-gray-600 text-sm">
-                See the smiles and memories we&apos;ve helped create.
-              </p>
+              Book Now
             </Link>
           </div>
         </div>
       </section>
 
-      {/* ── Featured equipment ── */}
+      {/* ── Why Choose Us ── */}
       <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <h2 className="font-display text-4xl md:text-5xl text-brand-navy mb-4">Popular Rentals</h2>
-            <p className="text-gray-500 text-lg">A taste of what we bring to your event.</p>
+            <h2 className="font-display text-4xl md:text-5xl text-brand-navy mb-3">The Premier Party Rental Company on the Suncoast!</h2>
+            <p className="font-display text-2xl text-brand-sky mb-5">The Party Comes to You!</p>
+            <p className="text-gray-500 text-lg max-w-3xl mx-auto leading-relaxed">
+              Fun Pass Entertainment Group brings the fun straight to your backyard, venue, or event location — so you can focus on making memories while we handle everything else. Whether it&apos;s a birthday bash, school event, church gathering, corporate outing, or neighborhood block party, we have everything you need to make it a day everyone will be talking about.
+            </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredItems.map((item) => (
-              <EquipmentCard key={item.name} {...item} />
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+            {[
+              { emoji: '📍', title: 'Local & Dependable', desc: 'We\'re based right here in Palmetto, FL. When you book with us, you\'re supporting a local business that genuinely cares about your community and your event.' },
+              { emoji: '💰', title: 'Transparent Pricing', desc: 'No hidden fees, no surprises. We keep our pricing straightforward and affordable so you can plan your event budget with confidence.' },
+              { emoji: '🎯', title: 'Right for Any Occasion', desc: 'Birthday parties, school events, corporate outings, neighborhood block parties — our equipment lineup is designed to fit events of all sizes and styles.' },
+              { emoji: '🚚', title: 'Delivery & Setup Included', desc: 'We handle the heavy lifting so you don\'t have to. We\'ll deliver, set everything up before your event starts, and come back to break it all down when you\'re done.' },
+              { emoji: '🤝', title: 'Personalized Service', desc: 'You\'re not just a transaction. We take the time to understand your event, answer your questions, and make sure you get exactly what you need for a great experience.' },
+              { emoji: '✅', title: 'Easy Booking Process', desc: 'Just browse our rentals, send us an inquiry, and we\'ll get back to you within 24 hours to lock in the details. Simple, fast, and hassle-free.' },
+            ].map(({ emoji, title, desc }) => (
+              <div key={title} className="bg-white rounded-3xl p-7 shadow-sm hover:shadow-md transition-shadow">
+                <div className="text-4xl mb-4">{emoji}</div>
+                <h3 className="font-display text-xl text-brand-navy mb-2">{title}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
+              </div>
             ))}
           </div>
-          <div className="text-center mt-12">
-            <Link
-              href="/party-rentals"
-              className="inline-block bg-brand-navy text-white font-bold px-8 py-4 rounded-full text-sm uppercase tracking-wide hover:bg-brand-sky transition-colors"
-            >
-              View All Rentals
-            </Link>
+
+          {/* Service Area */}
+          <div className="bg-brand-navy rounded-3xl px-8 py-10 text-center">
+            <p className="text-brand-yellow font-bold uppercase tracking-widest text-sm mb-3">Proudly Serving</p>
+            <h3 className="font-display text-3xl text-white mb-5">The Suncoast Region & Beyond</h3>
+            <div className="flex flex-wrap justify-center gap-3 mb-6">
+              {['Palmetto', 'Bradenton', 'Parrish', 'Ellenton', 'Lakewood Ranch', 'Sarasota', 'Ruskin', 'Sun City Center', 'Apollo Beach', 'Terra Ceia'].map((city) => (
+                <span key={city} className="bg-white/10 text-white/90 text-sm font-medium px-4 py-1.5 rounded-full border border-white/20">
+                  {city}
+                </span>
+              ))}
+            </div>
+            <p className="text-white/55 text-sm">
+              Don&apos;t see your city?{' '}
+              <Link href="/contact" className="text-brand-yellow hover:underline font-semibold">
+                Contact us
+              </Link>{' '}
+              — we may still be able to serve your area.
+            </p>
           </div>
         </div>
       </section>
