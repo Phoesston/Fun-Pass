@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import SlideshowHeader from './components/SlideshowHeader';
 
 const heroImages = [
@@ -16,24 +15,20 @@ export default function Home() {
   return (
     <>
       {/* ── Hero ── */}
-      <SlideshowHeader images={heroImages} overlay="bg-black/45" className="min-h-screen">
-        <div className="text-center px-4 max-w-4xl mx-auto pt-20">
-          <Image
-            src="/logos/Fun-PassLogo1.png"
-            alt="Fun Pass Entertainment Group"
-            width={220}
-            height={220}
-            className="mx-auto mb-3 drop-shadow-2xl rounded-2xl"
-            priority
-          />
-          <p className="text-white text-sm uppercase tracking-widest mb-8 drop-shadow-lg font-bold">
+      <SlideshowHeader images={heroImages} overlay="bg-black/50" className="min-h-screen">
+        <div className="text-center px-4 max-w-4xl mx-auto">
+          {/* Brand badge */}
+          <div className="inline-flex items-center gap-2 bg-brand-yellow text-brand-navy font-display font-bold text-xl md:text-2xl px-8 py-3 rounded-full mb-6 shadow-xl uppercase tracking-wide">
+            Fun Pass Entertainment Group
+          </div>
+          <p className="text-white/80 text-sm uppercase tracking-widest mb-6 drop-shadow-lg font-semibold">
             📍 Palmetto · Bradenton · Parrish · Ellenton · Lakewood Ranch · Sarasota &amp; more
           </p>
-          <h1 className="font-display text-5xl md:text-7xl text-white mb-5 drop-shadow-lg leading-tight">
-            Where Every Event Becomes a{' '}
+          <h1 className="font-display text-6xl md:text-8xl text-white mb-5 drop-shadow-lg leading-tight">
+            Where Every Event<br className="hidden sm:block" /> Becomes a{' '}
             <span className="text-brand-yellow">Party!</span>
           </h1>
-          <p className="text-white/85 text-xl md:text-2xl mb-10 font-medium">
+          <p className="text-white/85 text-xl md:text-2xl mb-10 font-medium max-w-2xl mx-auto">
             Premium party &amp; foam rentals for birthdays, corporate events, and more.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
