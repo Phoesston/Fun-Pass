@@ -16,43 +16,43 @@ export default function Home() {
     <>
       {/* ── Hero ── */}
       <SlideshowHeader images={heroImages} overlay="bg-black/50" className="min-h-screen">
-        <div className="text-center px-4 max-w-4xl mx-auto">
+        <div className="text-center px-4 max-w-4xl mx-auto py-4">
           {/* Brand badge */}
-          <div className="inline-flex items-center gap-2 bg-brand-yellow text-brand-navy font-display font-bold text-xl md:text-2xl px-8 py-3 rounded-full mb-6 shadow-xl uppercase tracking-wide">
-            Fun Pass Entertainment Group
+          <div className="inline-flex items-center gap-2 bg-brand-yellow text-brand-navy font-display font-bold text-sm md:text-xl px-5 py-2 md:px-8 md:py-3 rounded-full mb-4 md:mb-6 shadow-xl uppercase tracking-wide">
+            🎉 Fun Pass Entertainment Group
           </div>
-          <p className="text-white/80 text-sm uppercase tracking-widest mb-6 drop-shadow-lg font-semibold">
+          <p className="text-white/80 text-xs md:text-sm uppercase tracking-wider md:tracking-widest mb-4 md:mb-6 drop-shadow-lg font-semibold">
             📍 Palmetto · Bradenton · Parrish · Ellenton · Lakewood Ranch · Sarasota &amp; more
           </p>
-          <h1 className="font-display text-6xl md:text-8xl text-white mb-5 drop-shadow-lg leading-tight">
+          <h1 className="font-display text-4xl sm:text-5xl md:text-8xl text-white mb-4 md:mb-5 drop-shadow-lg leading-tight">
             Where Every Event<br className="hidden sm:block" /> Becomes a{' '}
             <span className="text-brand-yellow">Party!</span>
           </h1>
-          <p className="text-white/85 text-xl md:text-2xl mb-10 font-medium max-w-2xl mx-auto">
+          <p className="text-white/85 text-base md:text-2xl mb-8 md:mb-10 font-medium max-w-2xl mx-auto">
             Premium party &amp; foam rentals for birthdays, corporate events, and more.
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
+          <div className="grid grid-cols-2 gap-3 sm:flex sm:flex-wrap sm:gap-4 justify-center">
             <Link
               href="/party-rentals"
-              className="bg-brand-yellow text-brand-navy font-bold px-8 py-4 rounded-full text-lg uppercase tracking-wide hover:scale-105 transition-transform shadow-xl"
+              className="bg-brand-yellow text-brand-navy font-bold px-4 py-3 md:px-8 md:py-4 rounded-full text-sm md:text-lg uppercase tracking-wide hover:scale-105 transition-transform shadow-xl text-center"
             >
               🎉 Party Rentals
             </Link>
             <Link
               href="/foam-rentals"
-              className="bg-brand-sky text-brand-navy font-bold px-8 py-4 rounded-full text-lg uppercase tracking-wide hover:scale-105 transition-transform shadow-xl"
+              className="bg-brand-sky text-brand-navy font-bold px-4 py-3 md:px-8 md:py-4 rounded-full text-sm md:text-lg uppercase tracking-wide hover:scale-105 transition-transform shadow-xl text-center"
             >
               🫧 Foam Rentals
             </Link>
             <Link
               href="/concessions"
-              className="bg-brand-green text-white font-bold px-8 py-4 rounded-full text-lg uppercase tracking-wide hover:scale-105 transition-transform shadow-xl"
+              className="bg-brand-green text-white font-bold px-4 py-3 md:px-8 md:py-4 rounded-full text-sm md:text-lg uppercase tracking-wide hover:scale-105 transition-transform shadow-xl text-center"
             >
               🍿 Concessions
             </Link>
             <Link
               href="/chairs-tables"
-              className="bg-white text-brand-navy font-bold px-8 py-4 rounded-full text-lg uppercase tracking-wide hover:scale-105 transition-transform shadow-xl"
+              className="bg-white text-brand-navy font-bold px-4 py-3 md:px-8 md:py-4 rounded-full text-sm md:text-lg uppercase tracking-wide hover:scale-105 transition-transform shadow-xl text-center"
             >
               🪑 Chairs &amp; Tables
             </Link>
