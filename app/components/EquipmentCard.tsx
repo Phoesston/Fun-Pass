@@ -16,9 +16,10 @@ interface EquipmentCardProps {
   imageSrc?: string;
   images?: string[];
   category: 'party' | 'foam' | 'concessions' | 'chairs-tables';
+  price?: number;
 }
 
-export default function EquipmentCard({ name, description, imageSrc, images, category }: EquipmentCardProps) {
+export default function EquipmentCard({ name, description, imageSrc, images, category, price }: EquipmentCardProps) {
   const config = categoryConfig[category] ?? categoryConfig.party;
   const [isOpen, setIsOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -81,6 +82,13 @@ export default function EquipmentCard({ name, description, imageSrc, images, cat
 
         {/* Dark gradient scrim */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+
+        {/* Price badge */}
+        {price !== undefined && (
+          <div className="absolute top-4 right-4 bg-brand-navy text-brand-yellow font-bold text-sm px-3 py-1 rounded-full shadow-md">
+            ${price} / 2 days
+          </div>
+        )}
 
         {/* Text pinned to the bottom */}
         <div className="absolute bottom-0 left-0 right-0 p-6">
@@ -169,7 +177,14 @@ export default function EquipmentCard({ name, description, imageSrc, images, cat
 
             {/* Text */}
             <div className="px-8 pt-5 pb-8 overflow-y-auto">
-              <h2 className="font-display text-3xl text-brand-navy mb-3">{name}</h2>
+              <div className="flex items-start justify-between gap-4 mb-3">
+                <h2 className="font-display text-3xl text-brand-navy">{name}</h2>
+                {price !== undefined && (
+                  <div className="flex-shrink-0 bg-brand-navy text-brand-yellow font-bold text-base px-4 py-1.5 rounded-full">
+                    ${price} / 2 days
+                  </div>
+                )}
+              </div>
               <p className="text-gray-600 text-base leading-relaxed">{description}</p>
             </div>
           </div>
