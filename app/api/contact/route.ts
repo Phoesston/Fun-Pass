@@ -7,7 +7,7 @@ const schema = z.object({
   name:       z.string().min(2),
   email:      z.string().email(),
   phone:      z.string().optional(),
-  service:    z.enum(['Party Rentals', 'Foam Rentals', 'Both']),
+  service:    z.enum(['Party Rentals', 'Foam Rentals', 'Concessions', 'Chairs & Tables', 'Both']),
   event_date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'Invalid date format'),
   message:    z.string().optional(),
 })
