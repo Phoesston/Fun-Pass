@@ -68,7 +68,7 @@ export default function About() {
                 </p>
                 <p>
                   When you book with us, you&apos;re not just getting games or foam,{' '}
-                  <strong className="text-brand-navy">you&apos;re supporting a local veteran family</strong> committed
+                  <strong className="text-brand-navy">you&apos;re supporting a local family</strong> committed
                   to bringing fun to every event.
                 </p>
               </div>
@@ -91,10 +91,9 @@ export default function About() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { emoji: '🎖️', title: 'Veteran-Owned', body: 'Built on military values — reliability, integrity, and service above self.' },
+              { emoji: '🤝', title: 'Community First', body: 'Proud Palmetto residents supporting families and local organizations.' },
               { emoji: '🎉', title: 'All Ages Welcome', body: 'Our rentals are designed for kids and adults to enjoy together.' },
               { emoji: '💧', title: 'Safe & Clean', body: 'Equipment is sanitized before every event. Your safety is our priority.' },
-              { emoji: '🤝', title: 'Community First', body: 'Proud Palmetto residents supporting families and local organizations.' },
             ].map((item) => (
               <div
                 key={item.title}

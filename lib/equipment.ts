@@ -163,7 +163,7 @@ export const chairsTablesEquipment: EquipmentItem[] = [
   {
     name: 'Folding Chairs',
     description:
-      'Comfortable, sturdy, and available in bulk — our folding chairs set up fast and hold up all night. Whether you need 10 or 100, we\'ve got you covered.',
+      'Comfortable, sturdy, and available in bulk — our folding chairs set up fast and hold up all night, we\'ve got you covered.',
     category: 'chairs-tables',
     images: ['/chairs-tables/foldingChairs.jpg', '/chairs-tables/foldingChairs2.jpg'],
   },

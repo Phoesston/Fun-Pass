@@ -10,7 +10,7 @@ const sesClient = new SESClient({
   },
 })
 
-const FROM = process.env.AWS_SES_FROM_EMAIL!
+const FROM = `Fun Pass Entertainment Group <${process.env.AWS_SES_FROM_EMAIL!.trim()}>`
 const ADMIN = process.env.AWS_SES_ADMIN_EMAIL!
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL!
 
