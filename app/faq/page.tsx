@@ -5,12 +5,12 @@ const faqs = [
   {
     question: 'What areas do you travel to?',
     answer:
-      'WE have structured our rentals as DIY pick up/drop off so we can offer lower prices. However,for an additional fee we can provide drop off/pick up to the Palmetto, Parrish, Bradenton, and Lakewood Ranch, and surrounding areas. Contact us for details!',
+      'We have structured our rentals as DIY pick up/drop off so we can offer lower prices. However, for an additional fee we can provide drop off/pick up to the Palmetto, Parrish, Bradenton, and Lakewood Ranch, and surrounding areas. Contact us for details!',
   },
   {
     question: 'How much space is needed for the foam cannon?',
     answer:
-      'We recommend at least a 20×20 ft open outdoor area for the foam cannon. Foam parties should never be done in a pool for safety reasons.',
+      'We recommend at least a 20×20 ft open outdoor area for the foam cannon. For safety  reasons, foam cannons should not be used in direct contact with a pool.',
   },
   {
     question: 'What ages is a foam party appropriate for?',
@@ -20,7 +20,11 @@ const faqs = [
   {
     question: 'Is foam easy to clean up?',
     answer:
-      'One of the best things about foam parties is that the foam is made from a biodegradable, non-toxic solution that breaks down quickly and can be easily cleaned with water.',
+      'Yes, it disappears on its own or can be washed away quickly with the spray of a garden hose.',
+  },
+  {
+    question: 'Is the foam solution safe?',
+    answer: "Yes! It's non-toxic, hypoallergenic, and biodegradable. Great for kids from 1 to 100. Dogs love it too!",
   },
   {
     question: 'Can I rent multiple items for the same event?',

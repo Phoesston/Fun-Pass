@@ -14,6 +14,13 @@ export default function Concessions() {
         overlay="bg-brand-navy/65"
       />
 
+      {/* ── Marquee strip ── */}
+      <section className="bg-brand-yellow py-4">
+        <p className="font-display text-brand-navy text-xl md:text-2xl text-center">
+          Ask us about bundling to save more! 🎁
+        </p>
+      </section>
+
       {/* ── Equipment Grid ── */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
