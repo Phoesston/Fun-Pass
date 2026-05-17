@@ -15,11 +15,9 @@ export const metadata: Metadata = {
 };
 
 const heroImages = [
-  '/party-rentals/nerf.png',
-  '/concessions/foodMachineBundleAd.png',
+  '/foam-rentals/foam1.png',
+  '/party-rentals/nerf2.png',
   '/party-rentals/cornHole.jpg',
-  '/foam-rentals/foam1.jpg',
-  '/foam-rentals/foamCannonAd.png',
   '/party-rentals/tetrisTumble.jpg',
   '/party-rentals/giantGuessWho.jpeg',
 ];

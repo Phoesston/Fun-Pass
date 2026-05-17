@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 };
 
 const images = [
-  '/foam-rentals/foam1.jpg',
+  '/foam-rentals/foam1.png',
   '/foam-rentals/foam2.jpg',
 ];
 

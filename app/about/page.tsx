@@ -80,6 +80,11 @@ export default function About() {
                   simple, fun, and stress-free.
                 </p>
                 <p>
+                  Inclusion is especially important to our family. With personal experience supporting a
+                  child on the spectrum, we understand that every person has unique needs. We strive to
+                  create fun and inclusive experiences for all families.
+                </p>
+                <p>
                   When you book with us, you&apos;re not just getting games or foam,{' '}
                   <strong className="text-brand-navy">you&apos;re supporting a local family</strong> committed
                   to bringing fun to every event.
@@ -102,11 +107,12 @@ export default function About() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { emoji: '🤝', title: 'Community First', body: 'Proud Palmetto residents supporting families and local organizations.' },
               { emoji: '🎉', title: 'All Ages Welcome', body: 'Our rentals are designed for kids and adults to enjoy together.' },
               { emoji: '💧', title: 'Safe & Clean', body: 'Equipment is sanitized before every event. Your safety is our priority.' },
+              { emoji: '🎧', title: 'Inclusive & Sensory-Aware', body: 'With personal experience supporting a child on the spectrum, we create welcoming, low-stress fun for every family.' },
             ].map((item) => (
               <div
                 key={item.title}
