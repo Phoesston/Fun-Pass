@@ -21,7 +21,7 @@ export default function PartyRentals() {
       />
 
       {/* ── Marquee strip ── */}
-      <section className="bg-brand-yellow py-4">
+      <section className="sticky top-20 z-40 bg-brand-yellow py-4">
         <p className="font-display text-brand-navy text-xl md:text-2xl text-center">
           Ask us about bundling to save more! 🎁
         </p>
