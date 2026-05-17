@@ -1,5 +1,18 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
+
+export const metadata: Metadata = {
+  title: 'About Us',
+  description:
+    'Fun Pass Entertainment Group is a veteran-owned, family-operated party rental company based in Palmetto, FL. Learn our story and why families across the Suncoast choose us.',
+  openGraph: {
+    title: 'About Us | Fun Pass Entertainment Group',
+    description:
+      'Veteran-owned, family-operated party rental company based in Palmetto, FL. Serving the Suncoast with foam parties, yard games, and more.',
+    url: '/about',
+  },
+};
 
 export default function About() {
   return (

@@ -1,7 +1,20 @@
+import type { Metadata } from 'next';
 import EquipmentCard from '../components/EquipmentCard';
 import InquiryForm from '../components/InquiryForm';
 import SlideshowHeader from '../components/SlideshowHeader';
 import { concessionEquipment } from '../../lib/equipment';
+
+export const metadata: Metadata = {
+  title: 'Concession Rentals',
+  description:
+    'Rent snow cone machines, popcorn makers, cotton candy machines & more for your event. Sweet treats that take any party to the next level. Serving the Suncoast.',
+  openGraph: {
+    title: 'Concession Rentals | Fun Pass Entertainment Group',
+    description:
+      'Snow cone machines, popcorn makers, cotton candy machines & more. Sweet treats and snacks that take your event to the next level.',
+    url: '/concessions',
+  },
+};
 
 export default function Concessions() {
   return (

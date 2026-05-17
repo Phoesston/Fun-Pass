@@ -1,5 +1,18 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import FaqAccordion from '../components/FaqAccordion';
+
+export const metadata: Metadata = {
+  title: 'FAQ',
+  description:
+    'Answers to common questions about Fun Pass Entertainment Group — foam party safety, service area, booking process, equipment space requirements, and more.',
+  openGraph: {
+    title: 'FAQ | Fun Pass Entertainment Group',
+    description:
+      'Got questions about our party rentals, foam parties, or concession machines? Find answers to our most frequently asked questions.',
+    url: '/faq',
+  },
+};
 
 const faqs = [
   {

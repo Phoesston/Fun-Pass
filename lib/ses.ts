@@ -38,9 +38,10 @@ function emailWrapper(content: string): string {
     <div style="font-family:'Helvetica Neue',sans-serif;max-width:580px;margin:0 auto;color:#0f172a;">
       <div style="background:#0f172a;padding:24px 32px;border-radius:16px 16px 0 0;text-align:center;">
         ${APP_URL
-          ? `<img src="${APP_URL}/logos/Fun-PassLogo.png" alt="Fun Pass Entertainment Group" style="height:64px;width:auto;display:inline-block;" />`
-          : `<h1 style="margin:0;color:#F59E0B;font-size:26px;font-family:'Helvetica Neue',sans-serif;">🎲 Fun Pass Entertainment Group</h1>`
+          ? `<img src="${APP_URL}/logos/Fun-PassLogo1.png" alt="Fun Pass Entertainment Group" style="height:64px;width:auto;display:inline-block;" />`
+          : ''
         }
+        <p style="margin:8px 0 0;color:#F59E0B;font-size:20px;font-weight:700;font-family:'Helvetica Neue',sans-serif;letter-spacing:0.5px;">Fun Pass Entertainment Group</p>
       </div>
       <div style="background:#f8fafc;padding:32px;border-radius:0 0 16px 16px;border:1px solid #e2e8f0;">
         ${content}
@@ -53,6 +54,8 @@ function emailWrapper(content: string): string {
 
 // 1. Customer receives after submitting inquiry
 export async function sendInquiryReceived(inquiry: Inquiry, bookings: (Booking & { equipment: Equipment })[]) {
+  const name = escapeHtml(inquiry.customer_name)
+
   const itemRows = bookings.map(b => {
     const days = countDays(b.start_date, b.end_date)
     return `
@@ -63,7 +66,7 @@ export async function sendInquiryReceived(inquiry: Inquiry, bookings: (Booking &
   }).join('')
 
   const html = emailWrapper(`
-    <h2 style="margin:0 0 8px;">Hi ${inquiry.customer_name},</h2>
+    <h2 style="margin:0 0 8px;">Hi ${name},</h2>
     <p style="color:#64748b;margin:0 0 24px;">
       Thanks for your inquiry! We've received your request and will be in touch within 24 hours to discuss availability and pricing.
     </p>
@@ -83,6 +86,11 @@ export async function sendInquiryReceived(inquiry: Inquiry, bookings: (Booking &
 
 // 2. Admin notified of new inquiry
 export async function sendAdminNewInquiry(inquiry: Inquiry, bookings: (Booking & { equipment: Equipment })[]) {
+  const name    = escapeHtml(inquiry.customer_name)
+  const email   = escapeHtml(inquiry.customer_email)
+  const phone   = inquiry.customer_phone ? escapeHtml(inquiry.customer_phone) : null
+  const message = inquiry.message ? escapeHtml(inquiry.message) : null
+
   const itemRows = bookings.map(b => {
     const days = countDays(b.start_date, b.end_date)
     return `<li style="margin-bottom:6px;">${b.equipment.emoji} <strong>${b.equipment.name}</strong> — ${displayDate(b.start_date)} → ${displayDate(b.end_date)} (${days} days)</li>`
@@ -90,25 +98,26 @@ export async function sendAdminNewInquiry(inquiry: Inquiry, bookings: (Booking &
 
   const html = emailWrapper(`
     <h2 style="margin:0 0 16px;">🔔 New Inquiry — ${inquiry.reference_code}</h2>
-    <p><strong>Name:</strong> ${inquiry.customer_name}</p>
-    <p><strong>Email:</strong> ${inquiry.customer_email}</p>
-    <p><strong>Phone:</strong> ${inquiry.customer_phone || 'Not provided'}</p>
-    ${inquiry.message ? `<p><strong>Message:</strong> "${inquiry.message}"</p>` : ''}
+    <p><strong>Name:</strong> ${name}</p>
+    <p><strong>Email:</strong> ${email}</p>
+    <p><strong>Phone:</strong> ${phone || 'Not provided'}</p>
+    ${message ? `<p><strong>Message:</strong> "${message}"</p>` : ''}
     <ul style="margin:16px 0;">${itemRows}</ul>
     <a href="${APP_URL}/admin/bookings" style="display:inline-block;background:#0f172a;color:#fff;padding:12px 24px;border-radius:10px;text-decoration:none;font-weight:700;margin-top:8px;">
       View in Dashboard →
     </a>
   `)
 
-  return sendEmail(ADMIN, `New Inquiry: ${inquiry.reference_code} — ${inquiry.customer_name}`, html)
+  return sendEmail(ADMIN, `New Inquiry: ${inquiry.reference_code} — ${name}`, html)
 }
 
 // 3. Booking confirmed
 export async function sendBookingConfirmed(inquiry: Inquiry, booking: Booking & { equipment: Equipment }) {
+  const name = escapeHtml(inquiry.customer_name)
   const days = countDays(booking.start_date, booking.end_date)
   const html = emailWrapper(`
     <h2 style="color:#10b981;margin:0 0 8px;">✅ Booking Confirmed!</h2>
-    <p>Hi <strong>${inquiry.customer_name}</strong>,</p>
+    <p>Hi <strong>${name}</strong>,</p>
     <p style="color:#64748b;">Your booking for <strong>${booking.equipment.name}</strong> has been confirmed.</p>
     <div style="background:#fff;border-radius:12px;padding:20px;border:1px solid #e2e8f0;margin:20px 0;">
       <p><strong>Dates:</strong> ${displayDate(booking.start_date)} → ${displayDate(booking.end_date)} (${days} days)</p>
@@ -122,9 +131,10 @@ export async function sendBookingConfirmed(inquiry: Inquiry, booking: Booking & 
 
 // 4. Booking cancelled
 export async function sendBookingCancelled(inquiry: Inquiry, booking: Booking & { equipment: Equipment }, reason?: string) {
+  const name = escapeHtml(inquiry.customer_name)
   const html = emailWrapper(`
     <h2 style="margin:0 0 8px;">Booking Update — ${inquiry.reference_code}</h2>
-    <p>Hi <strong>${inquiry.customer_name}</strong>,</p>
+    <p>Hi <strong>${name}</strong>,</p>
     <p style="color:#64748b;">Unfortunately we're unable to fulfil your booking for <strong>${booking.equipment.name}</strong> on the requested dates.</p>
     ${reason ? `<p><strong>Reason:</strong> ${reason}</p>` : ''}
     <p style="color:#64748b;">Please visit our site to check alternative dates or equipment, or reply to this email and we'll help you find a solution.</p>
@@ -134,10 +144,11 @@ export async function sendBookingCancelled(inquiry: Inquiry, booking: Booking & 
 
 // 5. Admin added an item to their inquiry
 export async function sendItemAdded(inquiry: Inquiry, booking: Booking & { equipment: Equipment }) {
+  const name = escapeHtml(inquiry.customer_name)
   const days = countDays(booking.start_date, booking.end_date)
   const html = emailWrapper(`
     <h2 style="margin:0 0 8px;">Item Added to Your Inquiry</h2>
-    <p>Hi <strong>${inquiry.customer_name}</strong>,</p>
+    <p>Hi <strong>${name}</strong>,</p>
     <p style="color:#64748b;">We've added <strong>${booking.equipment.name}</strong> to your inquiry <strong>${inquiry.reference_code}</strong>.</p>
     <div style="background:#fff;border-radius:12px;padding:20px;border:1px solid #e2e8f0;margin:20px 0;">
       <p><strong>Item:</strong> ${booking.equipment.emoji} ${booking.equipment.name}</p>
@@ -150,9 +161,10 @@ export async function sendItemAdded(inquiry: Inquiry, booking: Booking & { equip
 
 // 6. Admin removed an item from inquiry
 export async function sendItemRemoved(inquiry: Inquiry, equipmentName: string, reason?: string) {
+  const name = escapeHtml(inquiry.customer_name)
   const html = emailWrapper(`
     <h2 style="margin:0 0 8px;">Item Removed from Your Inquiry</h2>
-    <p>Hi <strong>${inquiry.customer_name}</strong>,</p>
+    <p>Hi <strong>${name}</strong>,</p>
     <p style="color:#64748b;"><strong>${equipmentName}</strong> has been removed from your inquiry <strong>${inquiry.reference_code}</strong>.</p>
     ${reason ? `<p><strong>Reason:</strong> ${reason}</p>` : ''}
     <p style="color:#64748b;font-size:13px;">Reply to this email if you have any questions or would like to request an alternative.</p>
@@ -162,9 +174,10 @@ export async function sendItemRemoved(inquiry: Inquiry, equipmentName: string, r
 
 // 7. Inquiry expired (no admin response in 48h)
 export async function sendInquiryExpired(inquiry: Inquiry) {
+  const name = escapeHtml(inquiry.customer_name)
   const html = emailWrapper(`
     <h2 style="margin:0 0 8px;">Inquiry Expired — ${inquiry.reference_code}</h2>
-    <p>Hi <strong>${inquiry.customer_name}</strong>,</p>
+    <p>Hi <strong>${name}</strong>,</p>
     <p style="color:#64748b;">Your inquiry has expired as we were unable to process it within our usual 24-hour window. We apologise for any inconvenience.</p>
     <p style="color:#64748b;">Please visit our site to submit a new inquiry, or contact us directly at <a href="mailto:${ADMIN}">${ADMIN}</a>.</p>
   `)
@@ -246,9 +259,10 @@ export async function sendContactFormAdmin(data: {
 
 // 8. Reminder to admin: inquiry hasn't been actioned in 24h
 export async function sendAdminReminder(inquiry: Inquiry) {
+  const name = escapeHtml(inquiry.customer_name)
   const html = emailWrapper(`
     <h2 style="margin:0 0 8px;">⏰ Reminder: Inquiry Awaiting Action</h2>
-    <p>Inquiry <strong>${inquiry.reference_code}</strong> from <strong>${inquiry.customer_name}</strong> has been waiting for over 24 hours.</p>
+    <p>Inquiry <strong>${inquiry.reference_code}</strong> from <strong>${name}</strong> has been waiting for over 24 hours.</p>
     <p>It will auto-expire in another 24 hours if not actioned.</p>
     <a href="${APP_URL}/admin/bookings" style="display:inline-block;background:#F59E0B;color:#0f172a;padding:12px 24px;border-radius:10px;text-decoration:none;font-weight:700;">
       Review Now →

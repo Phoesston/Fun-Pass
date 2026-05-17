@@ -1,7 +1,20 @@
+import type { Metadata } from 'next';
 import EquipmentCard from '../components/EquipmentCard';
 import InquiryForm from '../components/InquiryForm';
 import SlideshowHeader from '../components/SlideshowHeader';
 import { foamEquipment } from '../../lib/equipment';
+
+export const metadata: Metadata = {
+  title: 'Foam Party Rentals',
+  description:
+    'High-powered foam cannons and foam party packages for birthdays, school events & more. Non-toxic, hypoallergenic foam. Serving Palmetto, Bradenton, Sarasota & the Suncoast.',
+  openGraph: {
+    title: 'Foam Party Rentals | Fun Pass Entertainment Group',
+    description:
+      'High-powered foam cannons and packages for the most unforgettable parties. Non-toxic & kid-safe. Serving Palmetto, Bradenton, and the Suncoast.',
+    url: '/foam-rentals',
+  },
+};
 
 const images = [
   '/foam-rentals/foam1.jpg',

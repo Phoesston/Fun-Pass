@@ -1,5 +1,18 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import SlideshowHeader from './components/SlideshowHeader';
+
+export const metadata: Metadata = {
+  title: 'Fun Pass Entertainment Group | Party & Foam Rentals – Palmetto, FL',
+  description:
+    'Premier party & foam rentals for birthdays, corporate events, and more. Serving Palmetto, Bradenton, Parrish, Sarasota & the Suncoast. Veteran-owned & family-operated.',
+  openGraph: {
+    title: 'Fun Pass Entertainment Group | Party & Foam Rentals – Palmetto, FL',
+    description:
+      'Premier party & foam rentals for birthdays, corporate events, and more. Serving Palmetto, Bradenton, Parrish, Sarasota & the Suncoast.',
+    url: '/',
+  },
+};
 
 const heroImages = [
   '/party-rentals/nerf.png',

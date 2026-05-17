@@ -1,7 +1,20 @@
+import type { Metadata } from 'next';
 import EquipmentCard from '../components/EquipmentCard';
 import InquiryForm from '../components/InquiryForm';
 import SlideshowHeader from '../components/SlideshowHeader';
 import { chairsTablesEquipment } from '../../lib/equipment';
+
+export const metadata: Metadata = {
+  title: 'Chairs & Tables Rental',
+  description:
+    'Rent folding chairs and tables for parties of all sizes. Affordable pricing with bundling options. Serving Palmetto, Bradenton, Parrish & the Suncoast.',
+  openGraph: {
+    title: 'Chairs & Tables Rental | Fun Pass Entertainment Group',
+    description:
+      'Folding chairs and tables for parties of all sizes. Affordable, bundleable, and delivered across the Suncoast.',
+    url: '/chairs-tables',
+  },
+};
 
 export default function ChairsTables() {
   return (

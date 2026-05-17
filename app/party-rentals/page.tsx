@@ -1,7 +1,20 @@
+import type { Metadata } from 'next';
 import EquipmentCard from '../components/EquipmentCard';
 import InquiryForm from '../components/InquiryForm';
 import SlideshowHeader from '../components/SlideshowHeader';
 import { partyEquipment } from '../../lib/equipment';
+
+export const metadata: Metadata = {
+  title: 'Party Rentals',
+  description:
+    'Rent giant yard games, lawn games, and more for birthdays, corporate events & parties in Palmetto, Bradenton, Parrish, and the Suncoast. Request a free quote today.',
+  openGraph: {
+    title: 'Party Rentals | Fun Pass Entertainment Group',
+    description:
+      'Giant yard games, lawn games, and more for birthdays, corporate events & parties. Serving Palmetto, Bradenton, and the Suncoast.',
+    url: '/party-rentals',
+  },
+};
 
 const images = [
   '/party-rentals/kerPlunk.jpeg',

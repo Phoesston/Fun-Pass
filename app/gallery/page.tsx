@@ -1,5 +1,18 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Gallery',
+  description:
+    'Browse photos from Fun Pass Entertainment Group events — foam parties, yard games, concessions, and more across Palmetto, Bradenton, and the Suncoast.',
+  openGraph: {
+    title: 'Gallery | Fun Pass Entertainment Group',
+    description:
+      'See the smiles, the foam, and the fun we bring to every event across Palmetto, Bradenton, and the Suncoast.',
+    url: '/gallery',
+  },
+};
 
 // Add your photo filenames to /public/gallery/ and list them here.
 // Example: { src: '/gallery/foam-party-1.jpg', alt: 'Summer foam party', label: 'Summer Foam Party' }

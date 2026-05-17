@@ -1,8 +1,17 @@
 import InquiryForm from '@/app/components/InquiryForm'
 
-export const metadata = {
-  title: 'Contact Us | Fun Pass Entertainment Group',
-  description: 'Get in touch with Fun Pass Entertainment Group. Call us or send an inquiry.',
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Contact Us',
+  description:
+    'Contact Fun Pass Entertainment Group in Palmetto, FL. Call (941) 396-3366 or send an inquiry for party rentals, foam parties & concessions. We respond within 24 hours.',
+  openGraph: {
+    title: 'Contact Us | Fun Pass Entertainment Group',
+    description:
+      'Call (941) 396-3366 or send an inquiry. We respond within 24 hours.',
+    url: '/contact',
+  },
 }
 
 export default function ContactPage() {
