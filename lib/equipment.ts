@@ -83,7 +83,7 @@ export const partyEquipment: EquipmentItem[] = [
       'Lock and load. Our Nerf Battle Set comes packed with blasters, darts, and safety goggles so guests can go all-out without anyone getting hurt. Kids love it — so do adults.',
     category: 'party',
     price: 50,
-    images: ['/party-rentals/nerf.png', '/party-rentals/nerfAd.png'],
+    images: ['/party-rentals/nerf.png', '/party-rentals/nerfAd.png', '/party-rentals/nerf2.png'],
   },
   {
     name: 'Skee-Ball Game',
@@ -96,7 +96,7 @@ export const partyEquipment: EquipmentItem[] = [
   {
     name: 'Splash Tower Dunk Game',
     description:
-      'Launch the ball, soak your target. This outdoor dunk game brings the thrill of the carnival dunk tank to your backyard — perfect for beating the Florida heat at summer events.',
+      'Launch the ball, soak your target. This outdoor dunk game brings the thrill of the carnival dunk tank to your backyard — perfect for beating the Florida heat at summer events. Chair not included',
     category: 'party',
     price: 60,
     images: ['/party-rentals/splashTower.jpg', '/party-rentals/splashTower2.jpg', '/party-rentals/splashTower3.jpg'],
@@ -125,7 +125,7 @@ export const concessionEquipment: EquipmentItem[] = [
   {
     name: 'Cotton Candy Machine',
     description:
-      'Spun fresh right at your event — fluffy clouds of cotton candy that disappear the second you put them out. A guaranteed favorite for guests of every age.',
+      'Spun fresh right at your event — fluffy clouds of cotton candy that disappear the second you put them out. A guaranteed favorite for guests of every age. Includes 25-40 Cones, 1 flavor candy floss (your choice)',
     category: 'concessions',
     images: ['/concessions/cottonCandyMachineAd.png', '/concessions/cottonCandyMachine.jpg'],
   },
@@ -157,6 +157,13 @@ export const concessionEquipment: EquipmentItem[] = [
     category: 'concessions',
     images: ['/concessions/foodMachineBundleAd.png'],
   },
+  {
+    name: 'Coming Soon: Dirty Soda Machine',
+    description:
+      'Inquire today. coming july 1st!. The ultimate thirst-quencher for Florida events. Our Dirty Soda Machine serves up customizable concoctions that are as delicious as they are Instagram-worthy — a must-have for any party.',
+    category: 'concessions',
+    images: ['/concessions/dirtySodaCominSoon.png'],
+  }
 ];
 
 export const chairsTablesEquipment: EquipmentItem[] = [
