@@ -158,7 +158,7 @@ export const concessionEquipment: EquipmentItem[] = [
     images: ['/concessions/foodMachineBundleAd.png'],
   },
   {
-    name: 'Coming Soon: Dirty Soda Machine',
+    name: 'Coming Soon: Dirty Soda Bar',
     description:
       'Inquire today. coming july 1st!. The ultimate thirst-quencher for Florida events. Our Dirty Soda Machine serves up customizable concoctions that are as delicious as they are Instagram-worthy — a must-have for any party.',
     category: 'concessions',
